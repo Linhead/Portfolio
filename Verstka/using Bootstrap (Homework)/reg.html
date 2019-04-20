@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+   
+     <title>Регистрационные данные</title>
+    <link href ="Bootstrap/styles/bootstrap.min.css" rel="stylesheet" />
+    <style>
+       form {
+       
+            width: 300px;
+            margin: 20px auto;
+            border: 1px solid grey;
+            padding: 20px;
+            
+        }
+     .buttons {
+        
+            
+            
+            margin: 20px auto;
+            
+        
+        }
+    
+        </style>
+</head>
+
+    <body>
+ 
+
+        <form>
+            <fieldset>
+                <legend>Регистрационные данные</legend>
+                <label for ="Name">Введите Ваше имя  </label>
+                <input type ="text" id ="Name" class="form-control" placeholder="Введите Ваше имя" />
+                <label for ="Surname">Введите Вашу фамилию  </label>
+                <input type ="text" id ="Surname" class="form-control" placeholder="Введите Вашу фамилию" />
+                <label for ="Age">Введите Ваш возраст  </label>
+                <input type ="number" id ="Age" class="form-control" value ="0" />
+                <label for ="Login">Придумайте логин  </label>
+                <input type ="text" id ="Login" class="form-control" placeholder="Придумайте логин" />
+                <label for ="Password">Придумайте пароль  </label>
+                <input type ="password" id ="Password" class="form-control" placeholder="Придумайте пароль" />
+               <div class ="buttons">
+                 <button type="submit" class="btn btn-primary">Отправить</button>
+                   <button type="reset" class="btn btn-warning">Сбросить</button>
+                </div>
+            </fieldset>
+        </form>
+       
+
+   
+</body>
+</html>

@@ -1,0 +1,36 @@
+.notifications {
+    .attention {
+        background-color: #FF7DA7;
+        @include displayGrid();
+        grid-template-columns: 1fr 0.1fr 10fr;
+        @include justifyItems(center);
+        @include alignItems(center);
+
+        img {
+            opacity: 0.5;
+        }
+
+        .line {
+            content: " ";
+            background: #FF84AB;
+            width: $size-zero-px + 2;
+            height: 80%;
+            @include alignSelf(center);
+            box-shadow: -1px 0px 1px #F2779E;
+        }
+
+        span {
+            font-size: $size-zero-px + 14;
+            font-family: $font-main;
+            font-weight: bold;
+
+        }
+
+        p {
+            @include displayGrid();
+            font-size: $size-zero-px +16;
+            color: $color-white;
+
+        }
+    }
+}

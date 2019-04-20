@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Grid columns/rows</title>
+    <meta charset="utf-8" />
+    <style>
+	* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+html,body {
+  height: 100vh;
+}
+
+body {
+  background-color: #333;
+}
+
+.wrapper {
+  width: 1065px;
+  height: auto;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+}
+
+.map {
+  position: relative;
+  height: 370px;
+  padding-bottom: 52.168447517%;
+  background-image: url(europe.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  box-shadow: 0 0 100px #000;
+  border-radius: 10px;
+}
+
+
+
+.map-icons {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  }
+  
+  .icon {
+      content: " ";
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+  background: red;
+  cursor: pointer;
+  box-shadow: 0 0 0 rgba(243, 107, 107, 0.71);
+
+      animation: pulse 1.5s infinite;
+    
+    }
+    #icon1 {
+      left: 48.7%;
+    top: 48%;
+    }
+    #icon2 {
+      left: 61.8%;
+    top: 55.5%;
+    }
+   #icon3 {
+    left: 42.7%;
+    top: 67%;
+    }
+    #icon4 {
+      left: 22.5%;
+    top: 74.5%;
+    }
+  
+  .map-icons div {
+    position: absolute;
+     
+	  }
+    
+	.icon:hover  {
+    animation-play-state:paused;
+  }
+
+ .icon:hover {
+ animation: show 1s;
+  
+
+}
+.icon:hover::after {
+  content: attr(data-title) url(https://www.momondo.ru/); /* Выводим текст */
+    position: absolute; /* Абсолютное позиционирование */
+    left: 0; right: 0; bottom: 10px; /* Положение подсказки */
+    z-index: 1; /* Отображаем подсказку поверх других элементов */
+    background: rgba(0,42,167,0.6); /* Полупрозрачный цвет фона */
+    color: #fff; /* Цвет текста */
+    text-align: center; /* Выравнивание текста по центру */
+    font-family: Arial, sans-serif; /* Гарнитура шрифта */
+    font-size: 11px; /* Размер текста подсказки */
+    padding: 15px 20px; /* Поля */
+    border: 1px solid #333; /* Параметры рамки */
+    width: 150px;
+    text-decoration:underline;
+    
+   }
+   
+    .Hamburg {
+     left: 50.7%;
+    top: 48%;
+}
+    
+    .Krakow {
+      left: 63.8%;
+    top: 55.5%;
+    }
+    .Turin {
+      left: 44.7%;
+    top: 67%;
+    }
+    .Madrid {
+      left: 24.5%;
+    top: 74.5%;
+    }
+
+   
+
+@keyframes pulse {
+  0% {
+    -moz-box-shadow: 0 0 0 0 rgba(238, 17, 17, 0.4);
+    box-shadow: 0 0 0 0 rgba(245, 8, 8, 0.4);
+  }
+  70% {
+      -moz-box-shadow: 0 0 0 5px rgba(238, 17, 17, 0.4);
+      box-shadow: 0 0 0 5px rgba(238, 17, 17, 0.4);
+  }
+  100% {
+      -moz-box-shadow: 0 0 0 0 rgba(238, 17, 17, 0.4);
+      box-shadow: 0 0 0 0 rgba(238, 17, 17, 0.4);
+  }
+}
+
+@keyframes show{
+	 0%{
+		 opacity:0;
+	 }
+	 
+	 
+	 100% {
+		 opacity:1;
+	 }
+}
+
+
+
+  
+
+	 </style>
+	 
+	 <script>
+	 
+	 </script>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='map'></div>
+  
+  <div class="map-icons" id="map-icons">
+   
+    <a href="https://www.momondo.ru/" class ="icon" id="icon1" data-title="Билеты от 8499 рублей..."></a>
+    <div class="Hamburg" id="0">Hamburg</div>
+    <a href="https://www.momondo.ru/" class ="icon" id="icon2" data-title="Билеты от 6999 рублей..."></a>
+    <div class="Krakow" id="1">Krakow</div>
+    <a href="https://www.momondo.ru/" class ="icon" id="icon3" data-title="Билеты от 12299 рублей..."></a>
+    <div class="Turin" id="2">Turin</div>
+    <a href="https://www.momondo.ru/" class ="icon" id="icon4" data-title="Билеты от 14499 рублей..."></a>
+    <div class="Madrid" id="3">Madrid</div>
+   
+  </div>
+
+</div>
+
+
+</body>
+</html>

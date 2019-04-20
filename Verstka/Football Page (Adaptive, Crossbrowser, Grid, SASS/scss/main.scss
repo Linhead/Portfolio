@@ -1,0 +1,33 @@
+$size-zero:0px;
+$size-main:10px;
+$size-width:100;
+$position:center;
+$font-main:Sawarabi+Gothic;
+$font-second:Roboto;
+$color-green:rgb(14, 235, 14);
+$color-gray:rgba(128, 128, 128, 0.89);
+$color-white:white;
+
+body {
+    padding: $size-zero;
+    margin: $size-zero;
+    background-color: $color-white;
+    color:$color-gray;
+    
+}
+
+.grid {
+
+    display: grid;
+    grid-row-gap: $size-main+10;
+    grid-template-rows: minmax(50px, 50px) 300px;
+    
+    }
+
+    @import "section-header";
+    @import "section-subheader";
+    @import "section-main"
+
+    
+
+

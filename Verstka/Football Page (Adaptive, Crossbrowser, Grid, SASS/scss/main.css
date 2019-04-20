@@ -1,0 +1,72 @@
+body {
+  padding: 0px;
+  margin: 0px;
+  background-color: white;
+  color: rgba(128, 128, 128, 0.377);
+}
+
+.grid {
+  display: -ms-grid;
+  display: grid;
+  grid-row-gap: 15px;
+  -ms-grid-rows: minmax(100px, 50px) 300px;
+      grid-template-rows: minmax(100px, 50px) 300px;
+}
+
+.grid .header {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: minmax(auto, 2fr) 1fr (2fr)[6];
+      grid-template-columns: minmax(auto, 2fr) 1fr repeat(6, 2fr);
+}
+
+.grid .header :nth-child(even) {
+  border-right: 1px solid white;
+}
+
+.grid .header div:first-of-type {
+  font-size: 60px;
+  color: #0eeb0e;
+  background-color: white;
+  padding-top: 0px;
+  margin-top: 0px;
+  text-align: left;
+}
+
+.grid .header div:first-of-type span {
+  color: rgba(128, 128, 128, 0.377);
+  font-size: 40px;
+  text-align: inherit;
+}
+
+.grid .header div {
+  font-family: Roboto;
+  height: 4vh;
+  background-color: #0eeb0e;
+  color: #f7f7f7;
+  font-size: 20px;
+  text-align: center;
+  padding-top: 10px;
+  margin-top: 10px;
+}
+
+.grid .subheader {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  padding: 10px;
+}
+
+.grid .subheader h2 {
+  padding: 0px;
+  margin: 0px;
+}
+
+.grid .subheader div {
+  font-size: 23px;
+  font-family: SawarabiGothic;
+  margin-top: 10px;
+  padding: 0px;
+}
+/*# sourceMappingURL=main.css.map */

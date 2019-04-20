@@ -1,0 +1,162 @@
+ .modal {
+            position: fixed; 
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: rgba(0, 0, 0, 0.5); 
+            z-index: 1050;
+            opacity: 0; 
+            @include transition (opacity, 400ms, ease-in);
+            pointer-events: none; 
+        }
+
+        /* при отображении модального окно */
+        .modal:target {
+            opacity: 1;
+            pointer-events: auto;
+            overflow-y: auto;
+        }
+
+        /* ширина модального окна и его отступы от экрана */
+        .modal-dialog {
+            position: relative;
+            width: auto;
+            margin: 10px;
+        }
+
+        @media (min-width: 576px) {
+            .modal-dialog {
+                max-width: 500px;
+                margin: 30px auto;
+            }
+        }
+        
+        /* свойства для блока, содержащего основное содержимое окна */
+        .modal-body {
+            position: relative;
+            @include flex (1, 1, auto);
+            padding: 15px;
+            overflow: auto;
+        }
+
+        .login-wr {
+            position: relative;
+            margin: 0 auto;
+            background: darken($color-grey, 2%);
+            max-width: 410px;
+            @include borderRadius(10px, 10px, 10px, 10px);
+            @include boxShadow (inset, 3px, 3px, 10px, 3px, lighten ($color-dark, 1%));
+            padding: 15px;
+            margin-top: 20em;
+
+            h2 {
+                text-align: center;
+                font-weight: 200;
+                font-size: 16px;
+                font-weight: bold;
+                margin-top: 10px;
+                
+            }
+
+            .form {
+                padding-top: 10px;
+                text-align: center;
+            }
+
+             input[type="text"], 
+input[type="password"],
+.button {
+    width: 80%;
+    margin-bottom: 10px;
+    height: 40px;
+    @include borderRadius(8px, 8px, 8px, 8px);
+    outline: 0;
+    -moz-outline-style: none;
+    background-color: #F5F1EB;
+    
+}
+input[type="text"],
+input[type="password"] {
+    border: 1px solid #bbb;
+    padding: 0 0 0 10px;
+    font-size: 14px;
+}
+
+a {
+    text-align: center;
+    font-size: 12px;
+    color: #3498db;
+}
+      
+.button {
+    position: relative;
+ 
+    height:40px;
+    text-align:center;
+    color:#FFF;
+    text-decoration:none;
+    line-height:43px;
+    font-family:'Oswald', Helvetica;
+    display: block;
+    margin: 0px 40px;
+}
+.button:before {
+    background:#f0f0f0;
+    background-image:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#D0D0D0), to(#f0f0f0));
+    @include borderRadius(5px, 5px, 5px, 5px);
+    -webkit-box-shadow:0 1px 2px rgba(0, 0, 0, .5) inset, 0 1px 0 #FFF; 
+    -moz-box-shadow:0 1px 2px rgba(0, 0, 0, .5) inset, 0 1px 0 #FFF; 
+    box-shadow:0 1px 2px rgba(0, 0, 0, .5) inset, 0 1px 0 #FFF;
+    position: absolute;
+    content: "";
+    left: -6px; right: -6px;
+    top: -6px; bottom: -10px;
+    z-index: -1;
+}
+.button:active {
+    -webkit-box-shadow:0 1px 0 rgba(255, 255, 255, .5) inset, 0 -1px 0 rgba(255, 255, 255, .1) inset;
+    top:5px;
+}
+.button:active:before{
+    top: -11px;
+    bottom: -5px;
+    content: "";
+}
+.green_button {
+    text-shadow:-1px -1px 0 darken($color-green, 5%);
+    background: $color-green;
+    border:1px solid $color-green;
+    @include  backgroundImageGradient (to bottom, lighten($color-green, 8%), darken($color-green, 8%)); 
+    @include borderRadius(5px, 5px, 5px, 5px);
+    -webkit-box-shadow:0 1px 0 rgba(255, 255, 255, .5) inset, 0 -1px 0 rgba(255, 255, 255, .1) inset, 0 4px 0 darken($color-green, 5%), 0 4px 2px rgba(0, 0, 0, .5);
+    -moz-box-shadow:0 1px 0 rgba(255, 255, 255, .5) inset, 0 -1px 0 rgba(255, 255, 255, .1) inset, 0 4px 0 darken($color-green, 5%), 0 4px 2px rgba(0, 0, 0, .5);
+    box-shadow:0 1px 0 rgba(255, 255, 255, .5) inset, 0 -1px 0 rgba(255, 255, 255, .1) inset, 0 4px 0 darken($color-green, 5%), 0 4px 2px rgba(0, 0, 0, .5);
+}
+.green_button:hover {
+    background: lighten($color-green, 3);
+    color: $color-white;
+    @include  backgroundImageGradient (top, darken($color-green, 8%), lighten($color-green, 8%));
+
+}
+        
+.close {
+    float: right;
+    font-family: sans-serif;
+    line-height: 1;
+    text-shadow: 0 1px 0 $color-white;
+    opacity: .5;
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+/* свойства для кнопки "Закрыть" при нахождении её в фокусе или наведении */
+.close:focus, .close:hover {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+    opacity: .75;
+}
+}
+

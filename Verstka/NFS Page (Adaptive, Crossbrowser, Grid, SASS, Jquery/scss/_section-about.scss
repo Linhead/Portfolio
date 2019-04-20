@@ -1,0 +1,44 @@
+.section-about {
+    
+    .container {
+        grid-template-columns: repeat(2,1fr);
+        @media screen and (max-width:992px) {
+            grid-template-columns: 1fr;
+        }
+    }
+}
+.about-left {
+    border-right: $size-main/5 solid lighten($color-gray, 10%);
+    font-size: $size-main+8px;
+    font-family: $font-second;
+    padding: {
+        top:$size-main*3;
+        left:$size-main*6;
+        right:$size-main*6;
+        bottom:$size-main;
+    }
+
+    h2 {
+        font-family: $font-main;
+        font-size: $size-main*3;
+        margin: {
+            top: $size-zero;
+            bottom:$size-main*3;
+        }
+    }
+}
+
+.img-responsive {
+    display: block;
+    max-width:100%;
+    height:auto;
+}
+
+.about-right {
+    padding: {
+        top:$size-main*3;
+        left:$size-main*5;
+        right:$size-main*3;
+        bottom:$size-main;
+    }
+}

@@ -1,0 +1,151 @@
+.content  {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-column-gap: 1em;
+    margin-top: 4em;
+    width: $size-width-1024;
+
+}
+
+.content_block {
+    line-height: 20px;
+  margin: 0 340px 0 0;
+  width:100%;
+    h1 {
+  
+    border-bottom: 7px solid #E5DED3;
+      color: $color-green;
+      font-size: 24px;
+      font-weight: normal;
+      line-height: 30px;
+      margin: 0 0 27px;
+      padding: 0 0 5px;
+      text-transform: uppercase;
+    
+    }
+
+    p {
+        padding-bottom: 20px;
+    }
+
+  
+
+        ul {
+
+            ::before {
+                float: left;
+                margin: 0 0 0 -16px;
+                color: $color-green;
+                content: "\2014";
+            }
+        }
+    
+}
+
+.aside {
+    display:grid;
+    grid-template-rows:repeat(2, 1fr);
+    grid-row-gap:3em;
+line-height: 20px;
+padding-top:6px;
+  
+
+}
+
+.aside-news_item {
+	  
+    padding-bottom: 15px;
+
+    &:last-child {
+        border:none;
+    }
+}
+
+.aside-news_title {
+    border-bottom: 7px solid #E5DED3;
+color: $color-green;
+font-size: 18px;
+font-weight: normal;
+line-height: 22px;
+margin: 0 0 12px;
+padding: 0 0 7px;
+text-transform: uppercase;
+
+}
+
+.aside-news_date {
+    font-size: 10px;
+line-height: 17px;
+text-transform: uppercase;
+}
+
+.aside-news_content  a {
+    color: $color-green;
+  text-decoration: underline;
+
+    &::after {
+        content: "";
+        position: absolute;
+        width: 320px;
+        height: 1px;
+        background-color: #E5DED3;
+        margin: 0 auto;
+        display: block;
+        margin-top: 15px;
+    }
+    }
+
+    .aside-certificate {
+        font-size: 18px;
+      height: 70px;
+      line-height: 30px;
+      margin: 0 0 50px;
+      position: relative;
+      @include borderRadius (5px, 5px, 5px, 5px);
+      background: lighten($color-green, 5%);
+      @include backgroundColorGradient (top, lighten($color-green, 5%), 0%, darken($color-green, 5%), 100%);
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,lighten($color-green, 5%)), color-stop(100%,darken($color-green, 5%)));
+      -pie-background: linear-gradient(lighten($color-green, 5%), $color-green, 5%);
+
+      a {
+        display: block;
+ color: #fff;
+ padding: 0 0 0 155px;
+ text-decoration: none;
+ position: relative;
+ min-height: 70px;
+
+ &::before { 
+    content: "";
+    height: 129px;
+    left: 19px;
+    position: absolute;
+    top: 0;
+    margin: -45px 0 0;
+    width: 126px;
+    background: url(../img/certificates_pages.png) no-repeat left top;
+ }
+    }
+      
+        }
+
+
+        @media screen and (max-width:1000px) {
+            .content {
+                width: auto;
+            }
+
+            .content_block {
+                margin: 0;
+            }
+
+        }
+
+        @media screen and (max-width:640px) {
+            .content {
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: none;
+
+            }
+
+        }

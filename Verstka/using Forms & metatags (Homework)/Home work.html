@@ -1,0 +1,153 @@
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+    .title  {
+      overflow: hidden;
+      text-align: center;
+      font-size: 24px;
+    }
+    .title span {
+      display: inline-block;
+    vertical-align: middle;
+    }
+    .title::before,
+    .title::after {
+      content:"";
+      display: inline-block;
+      vertical-align: middle;
+      width: 100%;
+      height: 4px;
+      background-color: aqua;
+      position: relative;
+    }
+    .title::before {
+      margin-left: -210%;
+      left: -14px;
+    }
+    .title::after{
+      margin-right: -150%;
+      right: -14px;
+    }
+    #id1 {
+      font-weight:bold;
+    }
+   
+   
+    
+   
+    </style>
+    
+</head>
+<body>
+  <div class="container">
+  
+      <div class="col-md-12 title">
+    <span>Персональная информация</span>
+  </div>
+  <div class="form-row">
+  <div class="form-group col-md-3 text-right" id="id1">
+      <label for="first_name" > *Имя: </label>
+      <input type="text"  name="first_name" value="" placeholder="Введите имя" required/>
+  </div>
+  </div>
+  <div class="form-row">
+      <div class="form-group col-md-3 text-right">
+      <label for="middle_name"> Отчество: </label>
+      <input type="text" name="middle_name" value="" placeholder="Введите отчество"/> 
+  </div>
+</div>
+<div class="form-row">
+<div class="form-group col-md-3 text-right" id="id1">
+      <label for="last_name"> *Фамилия: </label>
+      <input type="text" name="last_name" value="" placeholder="Введите фамилию" required/> 
+  </div>
+  </div>
+
+  <div class="col-md-12 title ">
+      <span>Адрес</span>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-3 text-right">
+          <label for="adres"> Адрес:</label> 
+      <input type="text" name="adres" value="" placeholder="Введите адрес"/>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-3 text-right">
+        <label for="City_town"> Город :</label>
+        <input type="text" name="City_town" value="" placeholder="Введите город"/>
+      </div>
+      </div>
+      <div class="form-row">
+    <div class="form-group col-md-3 text-right ml-3">
+      <label for="state"> Регион:</label> 
+      <select id="state" name="state">
+          <option disabled selected>Выберите Регион</option>
+        <option value="Moscow"> Москва</option>
+        <option value="St.Petersburg"> Санкт-Петербург</option>
+        <option value="Tatarstan">Республика Татарстан</option>
+        <option value="Komi">Республика Коми</option>
+      </select>
+      </div>
+      </div>
+      <div class="form-row">
+      <div class="form-group col-md-3 text-right" id="id1">
+          <label for="zip"> *Индекс:</label> 
+          <input type="text" name="zip" value="" placeholder="Введите индекс" required/>
+      </div>
+      </div>
+      <button type="submit" class="btn btn-secondary">Отправить</button>
+  </div>
+   
+  
+  <!--
+    <form method="POST" enctype="text/plain" autocomplete="on" action="#">
+      <p id="id1">
+        <label for="first_name" > *Имя: </label>
+      <input type="text"  name="first_name" value="" placeholder="Введите имя" required/>
+     </p>
+     <p>
+     <label for="middle_name"> Отчество: </label>
+      <input type="text" name="middle_name" value="" placeholder="Введите отчество"/> 
+    </p>
+    <p id="id1">
+    <label for="last_name"> *Фамилия: </label>
+      <input type="text" name="last_name" value="" placeholder="Введите фамилию" required/> 
+    </p>
+    
+    <div class="title">
+      <span>Адрес</span>
+    </div>
+    <p>
+      <label for="adres"> Адрес:</label> 
+      <input type="text" name="adres" value="" placeholder="Введите адрес"/>
+    </p>
+    <p>
+      <label for="City_town"> Город :</label>
+      <input type="text" name="City_town" value="" placeholder="Введите город"/>
+    </p>
+    <p>
+      <label for="state"> Регион:</label> 
+      <select id="state" name="state">
+        <option disabled selected>Выберите Регион</option>
+        <option value="Moscow"> Москва</option>
+        <option value="St.Petersburg"> Санкт-Петербург</option>
+        <option value="Tatarstan">Республика Татарстан</option>
+        <option value="Komi">Республика Коми</option>
+      </select>
+    </p>
+    <p id="id1">
+      <label for="zip"> *Индекс:</label> 
+      <input type="text" name="zip" value="" placeholder="Введите индекс" required/>
+    </p>
+      <p>
+        <button type="submit">Отправить данные</button>
+    </p>
+  
+    </form>
+  -->
+</body>
+</html>

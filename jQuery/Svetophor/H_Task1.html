@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Домашняя работа</title>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script>
+        $  (() => {
+
+            var div1 = $("#red");
+            var div2 = $("#yellow");
+            var div3 = $("#green");
+            var counter = 25;
+
+           let runIt1 = () => {
+                  
+                counter = 25;
+                div1.fadeTo("fast", 0.9)
+                    .delay(24500)
+                    .fadeTo("fast", 0.1);
+            }
+
+            let runIt2 = () => {
+                div2.fadeTo("fast", 0.9)
+                    .delay(4000)
+                    .fadeTo("fast", 0.1);
+            }
+
+            let runIt3 = () => {
+                counter = 24;
+                div3.fadeTo("fast", 0.9)
+                    .delay(20000)
+                    .fadeTo("fast", 0.1)
+                    .delay(500)
+                    .fadeTo("fast", 0.9)
+                    .delay(500)
+                    .fadeTo("fast", 0.1)
+                    .delay(500)
+                    .fadeTo("fast", 0.9)
+                    .delay(500)
+                    .fadeTo("fast", 0.1)
+                    .delay(500)
+                    .fadeTo("fast", 0.9)
+                    .delay(500)
+                    .fadeTo("fast", 0.1);
+    
+            }
+
+            let runIt = () => {
+                runIt1();
+                setTimeout(runIt2, 20500);
+                setTimeout(runIt3, 25500);
+                setTimeout(runIt2, 50500);
+            }
+
+           let count = () => {
+               if (counter <= 0) {
+                    $("#timer").text(" ");
+                }
+                else{
+                 $("#timer").text(counter);
+                counter--;
+                } 
+           }
+           
+           let countIt = () => {
+                setInterval( () => {
+                count(); 
+                },1000);
+           };
+           
+           setTimeout(() => {
+            countIt();
+            }, 54200)
+           
+            setInterval( () => {
+                runIt();
+            }, 55200);
+
+        });
+    </script>
+    <style>
+        div {
+            background-color: rgb(12, 12, 139);
+            padding-top: 5px;
+            width: 366px;
+            height: 538px;
+            margin: 25px auto;
+        }
+
+        #red,
+        #yellow,
+        #green {
+            border-radius: 75px;
+            width: 150px;
+            height: 135px;
+            border: 3px solid black;
+            opacity: 0.1;
+
+        }
+
+        #red {
+            background-color: hsla(0, 100%, 50%, 0.932);
+        }
+
+        #yellow {
+            background-color: yellow;
+        }
+
+        #green {
+            background-color: rgb(7, 250, 7);
+        }
+
+        #timer {
+            height: 200px;
+            border-top:20px solid black; 
+            background-color: black;
+            font-size: 124px;
+            text-align: center;
+            color: #fffb00;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <div id="red"></div>
+        <div id="yellow"></div>
+        <div id="green"></div>
+        <div id="timer"></div>
+    </div>
+</body>
+
+</html>

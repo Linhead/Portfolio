@@ -1,0 +1,341 @@
+<!-- Вместо mailto http://www.on-line-teaching.com/php/mail.htm
+http://mebel-mama.ru/
+
+
+ -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/main.css" rel="stylesheet">
+    
+    <title>Test work</title>
+    <body>
+        <div class="grid">
+		 
+			<header class = "header"> 
+            
+            <div class = "header_item-logo">
+			
+			</div>
+			
+			<div class = "header_item-contacts">
+                <ul>
+			<li> Телефон/факс: </li>
+			<li><strong>(3412) 48-32-98</strong></li>
+            <li>e-mail:<a href "mailto:bit@udol.ru">bit@udol.ru </a> </li>
+                </ul>
+			</div>
+			
+			<div class = "header_buttons">
+                <div class = "header_buttons-login">
+                    <span id="register">
+                        <a href = "#openModal"> Регистрация </a> 
+                    </span>
+                    <span id ="auth">
+                            <a href = "#"> Вход </a>
+                    </span>
+               </div>
+				<div class = "header_buttons-search">
+				<form action ="#" class="header_buttons-search-form">
+				<input type="text" name = "q" maxlength="50" id="text-field" placeholder="Поиск">
+			<input name = "s" type = "submit" value = "Поиск" id = "icon_search"> 
+			</form>			
+                </div>
+                 </div>
+			
+			</header>
+			
+			<nav class = "b-nav b-nav_header">
+				<ul class = "b-nav__list b-nav__list_inline">
+   
+					<li class = "b-nav__item .b-nav__first_item"> 
+						<a href = "#" class = "b-nav__link">О КОМПАНИИ </a>
+					</li>
+					<li class = "b-nav__item"> 
+						<a href = "#" class = "b-nav__link">ИНЖЕНЕРНОЕ СОПРОВОЖДЕНИЕ </a>
+					</li>
+					<li class = "b-nav__item"> 
+						<a href = "#" class = "b-nav__link">СЕРТИФИКАТЫ </a>
+					</li>
+					<li class = "b-nav__item"> 
+						<a href = "#" class = "b-nav__link">НОВОСТИ </a>
+					</li>
+					<li class = "b-nav__item"> 
+						<a href = "#" class = "b-nav__link">ТЕХНИЧЕСКАЯ ИНФОРМАЦИЯ </a>
+					</li>
+					<li class = "b-nav__item"> 
+						<a href = "#" class = "b-nav__link">КОНТАКТЫ </a>
+					</li>
+				</ul>
+			</nav>
+			
+			<section class="slider_block">
+                <div id="slider">
+                <ul id="slides">
+					<li style = "background:url(../img/slide1.jpg) left top no-repeat"; class="slide">
+					<strong class="slide_content">
+						<span>ДОЛОТА СЕРИИ ST  </span>
+						<p> Долота PDC серии ST предназначена для бурения сплошным вертикальных, наклонно-направленных и горизонтальных скважин</p>
+					</strong>
+					</li>
+					<li style = "background:url(../img/slide2.jpg) left top no-repeat"; class="slide">
+						<strong class="slide_content">
+						<span>БУРГОЛОВКИ PDC </span>
+						<p> Бурголовка серии PDC из агломерированного (искусственного) алмаза повышенной износостойкости. Предназначена, для отбора керна в породах средней твёрдости.</p></li>
+					</strong>
+					<li style = "background:url(../img/slide3.jpg) left top no-repeat"; class="slide">
+						<strong class="slide_content">
+						<span>Бицентричные долота PDC</span>
+						<p> Хорошо управляемое бицентричные долота, оснащенные резцами PDC из агломерированного (искусственного) алмаза.</p>
+					</strong>
+				</li>
+					<li style = "background:url(../img/slide4.jpg) left top no-repeat" class="slide">
+						<strong class="slide_content">
+						<span>Твердосплавные долота</span>
+						<p> Долото предназначено для калибрования ствола скважины, для упрочения стенок скважины в неустойчивых участках ствола.</p>
+					</strong>
+				</li>
+				</ul>
+				<button class="controls" id="prev-btn"></button>
+                <button class="controls" id="next-btn"></button>
+                </div>
+				
+			</section>
+			
+			<section class = "production-images">
+					<div class = "product_card-item"> 
+						<div class = "product_card-image">
+							<img src = "img/product.png">
+						</div>
+						<div class = "product_card-title">
+							<a href ="#">Долота PDC </a>
+						</div>
+					</div>	
+					<div class = "product_card-item"> 
+						<div class = "product_card-image">
+							<img src = "img/product.png">
+						</div>
+						<div class = "product_card-title">
+							<a href ="#">Бурголовки PDC </a>
+						</div>
+					</div>
+					<div class = "product_card-item"> 
+						<div class = "product_card-image">
+							<img src = "img/product.png">
+						</div>
+						<div class = "product_card-title">
+							<a href ="#">Бицентричные долота PDC </a>
+						</div>
+					</div>
+					<div class = "product_card-item"> 
+						<div class = "product_card-image">
+							<img src = "img/product.png">
+						</div>
+						<div class = "product_card-title">
+							<a href ="#">Твердосплавные долота </a>
+						</div>
+					</div>
+					<div class = "product_card-item"> 
+						<div class = "product_card-image">
+							<img src = "img/product.png">
+						</div>
+						<div class = "product_card-title">
+							<a href ="#"> Подвески «хвостовиков»</a>
+						</div>
+					</div>
+					<div class = "product_card-item"> 
+						<div class = "product_card-image">
+							<img src = "img/product.png">
+						</div>
+						<div class = "product_card-title">
+							<a href ="#"> Оборудование для отбора керна</a>
+						</div>
+					</div>
+					<div class = "product_card-item"> 
+						<div class = "product_card-image">
+							<img src = "img/product.png">
+						</div>
+						<div class = "product_card-title">
+							<a href ="#"> Калибраторы и центраторы </a>
+						</div>
+					</div>
+					<div class = "product_card-item"> 
+						<div class = "product_card-image">
+							<img src = "img/product.png">
+						</div>
+						<div class = "product_card-title">
+							<a href ="#">Клапаны для ВЗД </a>
+						</div>
+					</div>
+					<div class = "product_card-item"> 
+						<div class = "product_card-image">
+							<img src = "img/product.png">
+						</div>
+						<div class = "product_card-title">
+							<a href ="#">Оборудование для цементирования скважин</a>
+						</div>
+					</div>
+					<div class = "product_card-item"> 
+						<div class = "product_card-image">
+							<img src = "img/product.png">
+						</div>
+						<div class = "product_card-title">
+							<a href ="#"> Технологическая оснастка обсадных колонн</a>
+						</div>
+					</div>
+					<div class = "product_card-item"> 
+						<div class = "product_card-image">
+							<img src = "img/product.png">
+						</div>
+						<div class = "product_card-title">
+							<a href ="#">Вспомогательное оборудование </a>
+						</div>
+					</div>
+					
+				
+				
+				
+		
+					
+				
+            </section>
+
+            <section class = "content">
+                <div class="content_block">
+                    <h1>
+                        О компании
+                    </h1>
+					<p>
+                        Акционерное общество <strong> "Удмуртские долота" </strong> (АО "УДОЛ") организованное в 1996 году компаниями ОАО "Удмуртнефть" и ГПО "Воткинский завод" (Россия), производит высококачественное буровое оборудование, применяя передовые технологии, накопленный опыт и знания с целью повышения эффективности работы буровых и сервисных компаний.
+					<br>
+					<br>
+					На сегодняшний день нашим предприятием выпускается, постоянно модернизируется и совершенствуется ранее разработанная продукция:
+					</p>
+					<ul>
+				<li>	      долота PDC для бурения вертикальных, наклонно-направленных и горизонтальных скважин; </li>
+
+<li>      бурильные головки PDC; </li>
+
+<li>      бицентричные долота PDC; </li>
+
+<li>      специальные долота ДРЛ; </li>
+
+<li>      твердосплавные долота для разбуривания цементных стаканов и оснастки; </li>
+
+<li>      калибраторы, центраторы и стабилизаторы спиральные и прямолопастные; </li>
+
+<li>      керноотборные снаряды и кернорватели; </li>
+
+<li>      оборудование для подвески «хвостовиков»; </li>
+
+<li>      оборудование для цементирования: пакеры гидравлические и гидромеханические, муфты ступенчатого цементирования; </li>
+
+<li>      оснастка обсадных колонн: центраторы, турбулизаторы, клапаны обратные и башмаки колонные; </li>
+
+<li>      клапаны для ВЗД перепускные, обратные и комбинированные;</li>
+
+<li>      дисператоры, спайдеры. </li>
+					</ul>
+
+                </div>
+                <div class="aside">
+                    <section class ="aside-news_items">
+                        <h2 class ="aside-news_title">НОВОСТИ</h2>
+                        <p class="aside-news_item"> 
+                            <span class="aside-news_date">
+                            28 марта
+                            </span>
+                            <span class="aside-news_content">
+                                СП ЗАО "УДОЛ" сегодня - это динамично развивающаяся компания, зарекомендовавшая себя как надёжный поставщик  
+                            </span>
+                        </p>
+                        <p class="aside-news_item">
+                                <span class="aside-news_date">
+                                        20 марта
+                                        </span>
+                                <span class="aside-news_content">
+                                        Стремлением к постоянному совершенствованию производимого оборудования, расширением ассортимента  
+                                </span>
+                        </p>
+                        <p class="aside-news_item"> 
+                            <span class="aside-news_date">
+                                17 марта
+                                </span>
+                        <span class="aside-news_content">
+                               На сегодняшний день нашим предприятием разработаны и выпускаются  
+                        </span>
+                    </p>
+                    </section>
+                    <section class="aside-certificate">
+                        <p class="aside-certificate_content">
+                            <a href ="#">СЕРТИФИКАТЫ</a>
+ 
+                        </p>
+                        
+                        
+
+                    </section>
+
+                </div>
+            </section>
+
+            <footer class="footer">
+            
+                        <div class="btm_links"> 
+							<a href = "#"> Карта сайта </a>
+							<a href = "#"> Написать нам </a>
+                        </div>
+
+                        <div class="copyrights"> 
+                            <p id = "copyrights_text1">                © 2012 СП ЗАО «УДОЛ»</p>
+                            <p id = "copyrights_text2"> Создания сайта - компания "Пиком"</p>
+                        </div>
+
+                        <div class="counters"> 
+                            <a href="#" target="_blank">
+								<img src="img/counter1.png">
+                            </a>
+                            <a href="#" target="_blank">
+								<img src="img/counter2.png">
+                            </a>
+                        </div>
+
+
+
+                
+
+			</footer>
+			
+			<div id="openModal" class="modal">
+				<div class="modal-dialog">
+					
+					<div class="login-wr">
+						
+							<a href="#close" title="Close" class="close">×</a>
+						
+						<h2>Зарегистрироваться</h2>
+						
+						<div class="form">
+						  <input type="text" placeholder="Имя">
+						  <input type="password" placeholder="Телефон">
+						  <a href="#" class="button green_button"> Регистрация</a>
+						  <p> У вас уже есть аккаунт?  <a href="#">Войти</a> </p>
+						</div>
+					  </div>
+				
+			</div>
+			</div>
+			
+        </div>
+		<script src="js/main.js"></script>
+		
+    </body>
+
+
+
+</html>

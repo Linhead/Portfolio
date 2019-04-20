@@ -1,0 +1,43 @@
+body {
+  padding-top: 0px !important;
+  margin-top: 0px !important;
+  background-color: white;
+}
+
+.grid {
+  margin: 0px;
+  padding: 0px;
+  font-family: Tahoma, Geneva, "DejaVu Sans Condensed", sans-serif;
+  font-size: 14px;
+  display: grid;
+  display: -ms-grid;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -ms-grid-rows: (minmax(15px, 1fr))[auto-fit];
+      grid-template-rows: repeat(auto-fit, minmax(15px, 1fr));
+  -ms-grid-columns: minmax(100px, 1200px);
+      grid-template-columns: minmax(100px, 1200px);
+}
+
+.header {
+  /*padding: $size-main*7 0 0;
+    width: $size-width*9.6;
+    margin: $size-zero auto;
+    position: relative;
+    z-index: 10;*/
+  display: grid;
+  display: -ms-grid;
+  grid-auto-columns: -webkit-max-content;
+  grid-auto-columns: max-content;
+}
+
+.header .logo {
+  background: url("../img/logo.png") no-repeat 1px 9px;
+  float: left;
+  height: 74px;
+  padding: 0 0 35px;
+  text-indent: -9999em;
+  width: 231px;
+}
+/*# sourceMappingURL=main.css.map */

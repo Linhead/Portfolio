@@ -1,0 +1,34 @@
+.production-images {
+    background: #f5f1ea;
+    position:relative;
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
+    grid-row-gap:1em;
+    padding-bottom:2em;
+    width: 1024px;
+}
+
+.product_card-item {
+    padding-top:2em;
+    
+}
+
+.product_card-title  {
+
+    width: 206px;
+    a {
+        color: lighten($color-green, 5%);
+          line-height: 15px;
+
+          
+    } 
+ 
+  }
+  
+  @media screen and (max-width:800px) {
+    .production-images {
+        grid-template-columns: repeat(2, 1fr);
+        width: auto;
+    }
+  }

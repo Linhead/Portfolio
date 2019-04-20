@@ -1,0 +1,46 @@
+    .footer {
+	display:grid;
+	grid-template-columns:1.5fr repeat(2, 1fr);
+	width: $size-width-1024;
+    @include boxShadow (inset, 0px, 2px, 5px, 0px, darken ($color-grey, 5%)); 
+    background-color: #F7F1EA;
+    align-items: center;
+    height: 120px;	
+		}
+        
+    .btm_links {
+		font-size: 18px;
+		text-align: center;
+        
+        a {
+		    color: $color-dark;
+    display: inline-block;
+    margin-left: 18px;
+		}
+    }
+		
+	#copyrights_text1	
+		{
+			margin-top: 25px;
+    margin-bottom: 0px;
+		}
+		
+	#copyrights_text2	
+		{
+			margin-top: 0px;
+        }
+        
+    .counters  {
+    text-align: center;
+    a {
+        text-decoration: none;
+        border: none;
+    }
+		
+    }
+    
+    @media screen and (max-width:1000px) {
+        .footer {
+            width: auto;
+        }
+    }

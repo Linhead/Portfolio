@@ -1,0 +1,22 @@
+{
+  "name": "untitled3",
+  "version": "1.0.0",
+  "main": "src/js/index.js",
+  "scripts": {
+    "start": "webpack-dev-server --hot --inline",
+    "build": "webpack -w"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.3.3",
+    "@babel/preset-env": "^7.3.1",
+    "babel-loader": "^8.0.5",
+    "webpack": "^4.29.5",
+    "webpack-cli": "^3.2.3"
+  },
+  "dependencies": {
+    "webpack-dev-server": "^3.2.0"
+  },
+  "description": ""
+}

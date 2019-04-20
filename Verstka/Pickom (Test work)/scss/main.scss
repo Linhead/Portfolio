@@ -1,0 +1,143 @@
+$size-zero:0px;
+$size-main:10px;
+$size-main-em:1em;
+$size-width:100px;
+$size-width-1024:1024px;
+$size-height:100px;
+$font-main:Tahoma,Geneva,"DejaVu Sans Condensed",sans-serif;
+$color-white:white;
+$color-grey:#F7F7FA;
+$color-dark:#373737;
+$color-green: #459a2b;
+
+
+
+@mixin displayGrid () {
+    display: grid;
+    display: -ms-grid;
+  }
+  
+  @mixin justifyContent($position) {
+    -webkit-box-pack: $position;
+    -ms-flex-pack: $position;
+    justify-content: $position;
+  }
+
+  @mixin borderRadius($radius1, $radius2, $radius3, $radius4) {
+    -webkit-border-radius: $radius1 $radius2 $radius3 $radius4;
+       -moz-border-radius: $radius1 $radius2 $radius3 $radius4;
+        -ms-border-radius: $radius1 $radius2 $radius3 $radius4;
+            border-radius: $radius1 $radius2 $radius3 $radius4;
+  }
+
+  @mixin boxShadow ($inset, $x, $y, $radius, $size, $color) {
+    box-shadow: $inset $x $y $radius $size $color;
+        -moz-box-shadow: $inset $x $y $radius $size $color;
+        -webkit-box-shadow: $inset $x $y $radius $size $color;
+  }
+
+  @mixin userSelect($value) {
+    -webkit-user-select: $value;
+    -moz-user-select: $value;
+    -ms-user-select: $value;
+    -o-user-select: $value;
+    user-select: $value;
+  }
+
+  @mixin transition($property, $value, $speed) {
+    -webkit-transition: $property $value $speed;
+    -moz-transition: $property $value $speed;
+    -o-transition: $property $value $speed;
+    transition: $property $value $speed;
+  }
+
+  @mixin backgroundColorGradient ($position, $color1, $percentage1, $color2, $percentage2) {
+    background: -moz-linear-gradient($position, $color1 $percentage1,  $color2 $percentage2);
+    background: -webkit-linear-gradient($position, $color1 $percentage1, $color2 $percentage2);
+    background: -o-linear-gradient($position, $color1 $percentage1, $color2 $percentage2);
+    background: -ms-linear-gradient($position, $color1 $percentage1, $color2 $percentage2);
+    background: linear-gradient($position, $color1 $percentage1, $color2 $percentage2);
+  }
+
+  @mixin backgroundImageGradient ($position, $color1, $color2) {
+    background-image:-webkit-linear-gradient($position, $color1, $color2);
+    background-image:-moz-linear-gradient($position, $color1, $color2);
+    background-image:-ms-linear-gradient($position, $color1, $color2);
+    background-image:-o-linear-gradient($position, $color1, $color2);
+    background-image:linear-gradient($position, $color1, $color2);
+  }
+
+  @mixin flex ($grow, $shrink, $basis) {
+    flex:$grow $shrink $basis
+  }
+
+  
+
+
+  
+
+  
+
+
+
+body {
+    padding-top: $size-zero !important;
+    margin-top: $size-zero !important;
+    background-color: $color-white;
+   } 
+    
+.grid {
+    margin: $size-zero;
+    padding: $size-zero;
+    font-family: $font-main;
+    font-size: $size-main*1.4;
+    @include displayGrid();
+    @include justifyContent(center);
+    grid-template-rows: repeat(auto-fit, minmax($size-main*1.5, 1fr));
+    grid-template-columns: minmax($size-width, $size-width*13.6);
+    justify-content: center;
+    justify-items: center;
+}
+
+ul {
+  list-style: none;
+}
+a {
+  color: $color-green;
+  text-decoration: none;
+  border-bottom:1px solid;
+  @include transition(border-bottom, ease, 0.1s);
+
+  &:hover {
+    font-weight: bolder;
+  }
+
+  &:focus {
+      color:lighter($color-green, 5%);
+      border-bottom:1px solid transparent;
+  }
+ 
+  
+}
+
+@media screen and (max-width:640px) {
+  .grid {
+ 
+    grid-template-columns: minmax($size-width, $size-width*4.8);
+
+  }
+
+  
+}
+
+
+@import "section-header";
+@import "section-menu";
+@import "section-slider";
+@import "section-pictures";
+@import "section-content";
+@import "section-footer";
+@import "section-regWindow"
+
+
+
