@@ -1,0 +1,131 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<head>
+    <title>Использование CSS классов</title>
+	
+	 <script type="text/javascript">
+	 
+	 window.onload = function () {  
+	 var btn1 = document.getElementById("btn1");
+	 var btn2 = document.getElementById("btn2");
+	 var btn3 = document.getElementById("btn3");
+	 var btn4 = document.getElementById("btn4");
+	 
+	 if (btn1.addEventListener)// проверка поддержки DOM Level 2
+            {
+			btn1.addEventListener("click",
+                                     function () {
+									 var x = document.getElementById("firstNumber").value;
+	 var y = document.getElementById("secondNumber").value;
+	 var expression =  parseInt(x) + parseInt(y);
+	 result.value=expression;
+			 },
+                                     true);
+			}
+			else { // если DOM Level 2 не поддерживается браузером
+			btn1.onclick = function () {
+	 var x = document.getElementById("firstNumber").value;
+	 var y = document.getElementById("secondNumber").value;
+	 var expression =  parseInt(x) + parseInt(y);
+	 result.value=expression;
+			}
+		}
+			
+		if (btn2.addEventListener)// проверка поддержки DOM Level 2
+            {
+			btn2.addEventListener("click",
+                                     function () {
+									 var x = document.getElementById("firstNumber").value;
+	 var y = document.getElementById("secondNumber").value;
+	 var expression =  parseInt(x) - parseInt(y);
+	 result.value=expression;
+			 },
+                                     true);
+			}
+			else {  // если DOM Level 2 не поддерживается браузером
+			btn2.onclick = function () {
+	 var x = document.getElementById("firstNumber").value;
+	 var y = document.getElementById("secondNumber").value;
+	 var expression =  parseInt(x) - parseInt(y);
+	 result.value=expression;
+		}
+	 }
+	 
+	 
+	 
+		if (btn3.addEventListener)// проверка поддержки DOM Level 2
+            {
+			btn3.addEventListener("click",
+                                     function () {
+									 var x = document.getElementById("firstNumber").value;
+	 var y = document.getElementById("secondNumber").value;
+	 var expression =  parseInt(x) * parseInt(y);
+	 result.value=expression;
+			 },
+                                     true);
+			}
+			
+			else {  // если DOM Level 2 не поддерживается браузером
+			btn3.onclick = function () {
+	 var x = document.getElementById("firstNumber").value;
+	 var y = document.getElementById("secondNumber").value;
+	 var expression =  parseInt(x) * parseInt(y);
+	 result.value=expression;
+					}
+				}
+			
+		if (btn4.addEventListener)// проверка поддержки DOM Level 2
+            {
+			btn4.addEventListener("click",
+                                     function () {
+									 var x = document.getElementById("firstNumber").value;
+	 var y = document.getElementById("secondNumber").value;
+	 var expression =  parseInt(x) / parseInt(y);
+	if (y == 0 ) {
+	 result.value="На ноль делить нельзя!";
+	 }
+	 else {
+	 result.value=expression;
+	 }
+			 },
+                                     true);
+			}
+			else {  // если DOM Level 2 не поддерживается браузером
+			btn4.onclick = function () {
+	 var x = document.getElementById("firstNumber").value;
+	 var y = document.getElementById("secondNumber").value;
+	 var expression =  parseInt(x) / parseInt(y); 
+	 if (y == 0 ) {
+	 result.value="На ноль делить нельзя!";
+	 }
+	 else {
+	 result.value=expression;
+			}
+		}
+	}
+			
+}
+	 
+	 
+	 </script>
+	
+	</head>
+	
+	<body>
+	<form> <p> Введите первое значение:
+	<input type="text" id = "firstNumber" />
+	</p>
+	<p> Введите второе значение:
+	<input type="text" id="secondNumber" />
+	</p> 
+	<p> Выберите знак:
+	<input type="button" id="btn1" value="+" />
+	<input type="button" id="btn2" value="-" />
+	<input type="button" id="btn3" value="*" />
+	<input type="button" id="btn4" value=":" />
+	</p>
+	<p> Результат:
+	<input type="text" id="result" />
+	</form>
+	</body>
+</html>

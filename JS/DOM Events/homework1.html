@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Homework 1</title>
+</head>
+<style>
+    .students {
+        line-height: 2em;
+    }
+
+    li {
+        border: 1px solid silver;
+        width: 10em;
+    }
+
+    li:hover {
+        background-color: gainsboro;
+        cursor: pointer;
+    }
+
+    .menu {
+        width: 175px;
+        box-shadow: 3px 3px 5px #888888;
+        border: 1px solid gray;
+        border-radius: 5px;
+        padding: 3px 5px;
+        position: absolute;
+        left: 14em;
+        top: 3em;
+        display: none;
+        background-color: rgb(193, 225, 243);
+    }
+
+    a {
+        text-decoration: none;
+        color: black;
+    }
+
+    a:hover {
+
+        background-color: rgb(201, 217, 231);
+
+    }
+</style>
+
+
+
+<body>
+    <div class="students">
+        <ul> Студенты группы № 261 (для получения подробной информации о каждом студенте кликните правой кнопкой мыши
+            на студенте)
+            <li class="student">Тимур Султанов
+                <div class="menu">
+                    <div class="menu-item">Возраст: 30 лет</div>
+                    <div class="menu-item">Профессия: юрист</div>
+                    <hr>
+                    <div class="menu-item">Образование: высшее</div>
+                    <div class="menu-item">Стаж работы: 10 лет</div>
+                    <hr>
+                    <div class="menu-item"><a href="mailto:timur@gmail.com">Отправить письмо</a></div>
+                </div>
+            </li>
+            <li class="student">Ильнар Галимзянов
+                <div class="menu">
+                    <div class="menu-item">Возраст: 29 лет</div>
+                    <div class="menu-item">Профессия: инженер</div>
+                    <hr>
+                    <div class="menu-item">Образование: высшее</div>
+                    <div class="menu-item">Стаж работы: 7 лет</div>
+                    <hr>
+                    <div class="menu-item"><a href="mailto:timur@gmail.com">Отправить письмо</a></div>
+                </div>
+            </li>
+
+            <li class="student">Айдар Яруллин
+                <div class="menu">
+                    <div class="menu-item">Возраст: 28 лет</div>
+                    <div class="menu-item">Профессия: программист</div>
+                    <hr>
+                    <div class="menu-item">Образование: высшее</div>
+                    <div class="menu-item">Стаж работы: 5 лет</div>
+                    <hr>
+                    <div class="menu-item"><a href="mailto:timur@gmail.com">Отправить письмо</a></div>
+                </div>
+            </li>
+            <li class="student">Сергей Козырев
+                <div class="menu">
+                    <div class="menu-item">Возраст: 25 лет</div>
+                    <div class="menu-item">Профессия: энергетик</div>
+                    <hr>
+                    <div class="menu-item">Образование: средне-специальное</div>
+                    <div class="menu-item">Стаж работы: 4 года</div>
+                    <hr>
+                    <div class="menu-item"><a href="mailto:timur@gmail.com">Отправить письмо</a></div>
+                </div>
+            </li>
+            <li class="student">Диана Игнатьева
+                <div class="menu">
+                    <div class="menu-item">Возраст: 27 лет</div>
+                    <div class="menu-item">Профессия: учитель</div>
+                    <hr>
+                    <div class="menu-item">Образование: высшее</div>
+                    <div class="menu-item">Стаж работы: 5 лет</div>
+                    <hr>
+                    <div class="menu-item"><a href="mailto:timur@gmail.com">Отправить письмо</a></div>
+                </div>
+            </li>
+            <li class="student">Алина Халлиуллина
+                <div class="menu">
+                    <div class="menu-item">Возраст: 20 лет</div>
+                    <div class="menu-item">Профессия: студент</div>
+                    <hr>
+                    <div class="menu-item">Образование: незаконченное высшее</div>
+                    <div class="menu-item">Стаж работы: 1 год</div>
+                    <hr>
+                    <div class="menu-item"><a href="mailto:timur@gmail.com">Отправить письмо</a></div>
+                </div>
+            </li>
+
+        </ul>
+    </div>
+    <script>
+        
+        let menuDisplayed = false;
+        let menu = null;
+        let contextMenu = document.querySelectorAll('li');
+        //пробегаемся по массиву со списком
+        for (let i = 0; i < contextMenu.length; i++) {
+            // вешаем обработчик на нажатие элемента списка правой кнопкой мыши
+            contextMenu[i].addEventListener("contextmenu", (e) => {
+                // для того, чтобы блокировать стандартное действие правой кнопки мыши не во всех элементах страницы, проверяем на то, чтобы код срабатывал только,
+                // если пользователь клинкнул правой кнопкой мыши на студенте
+                if (e.target.className == "student") {
+                    menu = document.querySelectorAll(".menu");
+                    //пробегаемся по массивам со сведениями о каждом студенде
+                    menu.forEach(item => {
+                        // проверяем отображается ли в настоящее время блок со сведениями о студенте, если отображается - скрываем его
+                        if (item.style.display = "block") {
+                            item.style.display = "none"
+                        }
+                        // проверяем является ли блок со сведениями о студенте потомком элемента li, на который мы кликнули
+                        if (item.parentNode == contextMenu[i]) {
+                            // отображаем блок со сведениями о студенте
+                            item.style.display = "block";
+                            // блокируем стандартное действие правой кнопки мыши
+                            e.preventDefault();
+                            menuDisplayed = true;
+                        }
+                        // если пользователь кликнул левой кнопки мыши на любой элемент страницы, кроме блока со сведениями о студенте
+                        // скрываем блок 
+                        window.addEventListener("click", (e) => {
+                            if (e.target.className != "menu" && e.target.className !=
+                                "menu-item") {
+                                if (menuDisplayed == true) {
+                                    item.style.display = "none";
+                                }
+                            }
+                        });
+                    });
+                }
+            });
+            // вышаем обработчик на запрет копирования содержимого блока со сведениями о студенте
+            contextMenu[i].addEventListener('copy', (e) => {
+                alert('Копирование запрещено');
+                e.preventDefault();
+            });
+        }
+    </script>
+
+</body>

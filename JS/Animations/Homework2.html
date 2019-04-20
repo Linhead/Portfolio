@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Transition</title>
+    <style>
+        img {
+            width: 100px;
+            height: 75px;
+            margin-top: 50px;
+        }
+    #img1 {
+         -moz-transform: rotate(45deg);
+            -ms-transform: rotate(45deg); 
+            -o-transform: rotate(45deg);
+            -webkit-transform: rotate(45deg); 
+            transform: rotate(45deg);
+
+             -moz-transition: all 3s;
+            -o-transition: all 3s;
+            -webkit-transition: all 3s;
+            transition: all 3s;
+    }
+
+    #img2 {
+        -moz-transform: rotate(180deg);
+            -ms-transform: rotate(180deg); 
+            -o-transform: rotate(180deg);
+            -webkit-transform: rotate(180deg); 
+            transform: rotate(180deg);
+            -moz-transition: all 3s;
+            -o-transition: all 3s;
+            -webkit-transition: all 3s;
+            transition: all 3s;
+    }
+
+    #img3 {
+        -moz-transform: rotate(320deg);
+            -ms-transform: rotate(320deg); 
+            -o-transform: rotate(320deg);
+            -webkit-transform: rotate(320deg); 
+            transform: rotate(320deg);
+            -moz-transition: all 3s;
+            -o-transition: all 3s;
+            -webkit-transition: all 3s;
+            transition: all 3s;
+    }
+
+    #img4 {
+        -moz-transform: skew(30deg, 20deg);
+            -ms-transform: skew(30deg, 20deg); 
+            -o-transform: skew(30deg, 20deg);
+            -webkit-transform: skew(30deg, 20deg); 
+            transform: skew(30deg, 20deg);
+            -moz-transition: all 3s;
+            -o-transition: all 3s;
+            -webkit-transition: all 3s;
+            transition: all 3s;
+    }
+    #img1:hover,#img2:hover,#img3:hover,#img4:hover {
+        -moz-transform: rotate(270deg);
+            -ms-transform: rotate(270deg); 
+            -o-transform: rotate(270deg);
+            -webkit-transform: rotate(270deg); 
+            transform: rotate(270deg);
+    }
+
+         </style>
+</head>
+<body>
+    <p> Наведите курсор мыши на какое-либо изображение, чтобы перевернуть его </p>
+        <img src="img/cottage-icon.png" alt="Laptop" id="img1" /> <br />
+        <img src="img/coffee.jpg" alt="" id="img2" /> <br />
+        <img src="img/park.jpg" alt="" id="img3" /> <br />
+        <img src="img/bg.jpg" alt="" id="img4" /> <br />
+    </body>
+    </html>

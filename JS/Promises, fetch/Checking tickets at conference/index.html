@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Promises</title>
+    <link rel="stylesheet" href="css/main.css">
+    
+</head>
+
+<body>
+
+    <p><b>Выберите город</b></p>
+    <select id="city_select" name="city_select" class="select_city_conf">
+        <option value=""></option>
+        <option value="Москва" data-conf1Time="25 апреля 2019 года" data-conf1Location="СК Олимпийский"
+            data-conf2Time="15 апреля 2019 года" data-conf2Location="Крокус-сити-холл">Москва </option>
+        <option value="Санкт-Петербург" data-conf1Time="20 апреля 2019 года" data-conf1Location="ГКЗ ""Нева"""
+            data-conf2Time="10 апреля 2019 года" data-conf2Location="ГЦКЗ ""Звезда""">Санкт-Петербург</option>
+        <option value="Казань" data-conf1Time="30 апреля 2019 года" data-conf1Location="РК Пирамида"
+            data-conf2Time="22 апреля 2019 года" data-conf2Location="ГК Панорама">Казань</option>
+    </select>
+    <br>
+    <p><b>Выберите интересующую Вас конференцию</b></p>
+    <select id="conf_select" name="conf_select" class="select_city_conf">
+        <option value=""></option>
+        <option value="Бизнес-молодость">Бизнес-молодость</option>
+        <option value="Продвижение себя">Продвижение себя</option>
+    </select>
+    <p> Дата, время и место конференции:<span id="conf_data"></span> </p>
+
+    <p style="width: 250px"> Введите своё имя: <input class="userData" type="text" name="userName" required> </p>
+    <p style="width: 250px">Введите свою фамилию: <input class="userData" type="text" name="userLastName" required></p>
+    <p style="width: 250px">Введите свою электронную почту: <input class="userData" type="email" name="email" required>
+    </p>
+
+    <p><input type="button" value="Забронировать билет" id="button"></p>
+    <p ><strong> Статус:</strong><span id="status"> </span> <img src="img/wait.gif" alt="ожидание" id="waitIcon"></p>
+
+
+    <script src="js/main.js"></script>
+      <script src="js/jquery-3.3.1.min.js"></script>
+      <script src="http://rawgit.com/notifyjs/notifyjs/master/dist/notify.js"></script>
+</body>
+
+</html>

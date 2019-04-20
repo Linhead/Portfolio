@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Пример использования событий DOM Level 2</title>
+    <style type="text/css">
+        .tooltip {
+            -webkit-box-shadow: 2px 2px 3px black;
+            box-shadow: 2px 2px 3px black;
+    
+            background-color: whitesmoke;
+            border: solid black 1px;
+            padding: 5px;
+            font: bold 10pt sans-serif;
+        }
+
+         input:focus {
+  
+  outline: none;  /* убрать рамку */
+}
+    </style>
+    
+    <script>
+
+         if (window.addEventListener)
+         window.addEventListener ("load", Check, false);
+         else if (window.attachEvent)
+            window.attachEvent("onload", Check);
+ 
+ function Tooltip() {  
+            this.tooltip = document.createElement("div"); 
+            this.tooltip.style.position = "absolute";     
+            this.tooltip.style.visibility = "hidden";
+            this.tooltip.className = "tooltip";
+        }
+
+        
+        Tooltip.prototype.show = function (text, x, y) {
+            this.tooltip.innerHTML = text;             // Текст подсказки
+            this.tooltip.style.left = x + "px";        // Координаты
+            this.tooltip.style.top = y + "px";
+            this.tooltip.style.visibility = "visible";
+
+
+            if (this.tooltip.parentNode != document.body)
+                document.body.appendChild(this.tooltip);
+        };
+
+        Tooltip.prototype.hide = function () {
+            this.tooltip.style.visibility = "hidden";
+        };
+        function mouseOutHandler() {
+            t.hide();
+            this.style.borderColor= "";
+
+        }
+          
+
+        var t = new Tooltip();
+
+
+function Check () {
+var login = document.getElementsByTagName("input")[0];
+var pass = document.getElementsByTagName("input")[1];
+
+var regexp = /^[a-z\s]+$/i;
+
+login.onkeypress = function(e) {
+   if(!regexp.test(this.value+""+String.fromCharCode(e.charCode))) {
+    t.show("Пожалуйста введите только латинские буквы!", e.clientX + 10, e.clientY + 10);
+   login.style.borderColor= "red";
+   login.onmouseout = mouseOutHandler;
+    return false;
+    }
+}
+
+login.onpaste = function(e){
+     e.preventDefault();
+     t.show("Пожалуйста введите только латинские буквы!", e.clientX + 10, e.clientY + 10);
+   login.style.borderColor= "red";
+   login.onmouseout = mouseOutHandler;
+}
+
+pass.onkeypress = function(e) {
+     if(isNaN(this.value+""+String.fromCharCode(e.charCode))) {
+     t.show("Пожалуйста введите только цифры!", e.clientX + 10, e.clientY + 10);
+     pass.style.borderColor= "red";
+   pass.onmouseout = mouseOutHandler;
+    return false;
+  }
+}
+pass.onpaste = function(e){
+     e.preventDefault();
+     t.show("Пожалуйста введите только цифры!", e.clientX + 10, e.clientY + 10);
+     pass.style.borderColor= "red";
+   pass.onmouseout = mouseOutHandler;
+  }
+}
+
+        
+</script>
+</head>
+<body>
+        <form action="/test.html" method="post">
+<p>
+   Введите логин (только латинские буквы): <input type="text" value "">
+</p>
+<p>
+    Введите пароль (только цифры): <input type="text" value "">
+ </p>
+
+</form>
+</body>
+</html>

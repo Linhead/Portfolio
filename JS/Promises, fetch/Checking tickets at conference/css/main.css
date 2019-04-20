@@ -1,0 +1,23 @@
+
+        .notifyjs-bootstrap-base {
+            font-size: 14px;
+            height: 14px;
+            opacity: 0.8;
+            margin-top: 7px;
+        }
+
+        [data-notify-text] {
+            vertical-align: middle;
+        }
+
+
+        #conf_data {
+            font-weight: bold;
+        }
+
+        #waitIcon{
+            visibility: hidden;
+        }
+
+      
+    

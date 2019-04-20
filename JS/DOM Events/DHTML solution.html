@@ -1,0 +1,86 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Использование CSS классов</title>
+	<link href="StyleSheet.css" rel="stylesheet" type="text/css" />
+	 <script type="text/javascript">
+	 var div1;
+	 var div2;
+	 var div3;
+	 var intervalHandler1;
+	 var intervalHandler2;
+	 var intervalHandler3;
+     window.onload = function () {
+		 div1 = document.getElementById("first"),
+         div2 = document.getElementById("second");
+		 div3=  document.getElementById("third");
+		 document.getElementById("btn1").onclick = function () {
+		 intervalHandler1 = setInterval(changePosition1, 1000);
+		 }
+		 /*setInterval(changePosition2, 1000);
+		 setInterval(changePosition3, 1000);*/
+		 document.getElementById("btn2").onclick = function () {
+		 intervalHandler2 = setInterval(changePosition2, 1000);
+		 }
+		 
+		 document.getElementById("btn3").onclick = function () {
+		 intervalHandler3 = setInterval(changePosition3, 1000);
+		 }
+		 
+		  document.getElementById("btn4").onclick = function () {
+		 intervalHandler1 = setInterval(changePosition1, 1000);
+		 intervalHandler2 = setInterval(changePosition2, 1000);
+		 intervalHandler3 = setInterval(changePosition3, 1000);
+		 }
+		 
+		 document.getElementById("btn5").onclick = function () {
+		  clearInterval(intervalHandler1);
+		  clearInterval(intervalHandler2);
+		  clearInterval(intervalHandler3);
+		 }
+		 
+		 }
+		 
+		 
+		 
+		 
+		 function getRandomInRange(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+		 function changePosition1 (x,y) {
+		 x = getRandomInRange (1,500);
+		 y = getRandomInRange (1,150);
+		 div1.style.position = "absolute";
+		 div1.style.marginLeft = x + "px";   
+		 div1.style.marginTop = y + "px";
+		 }
+		 
+		 function changePosition2 (x,y) {
+		 x = getRandomInRange (1,500);
+		 y = getRandomInRange (1,150);
+		 div2.style.position = "absolute";
+		 div2.style.marginLeft = x + "px";   
+		 div2.style.marginTop = y + "px";
+		 }
+		 
+		 function changePosition3 (x,y) {
+		 x = getRandomInRange (1,500);
+		 y = getRandomInRange (1,150);
+		 div3.style.position = "absolute";
+		 div3.style.marginLeft = x + "px";   
+		 div3.style.marginTop = y + "px";
+		 }
+	 
+    </script>
+	
+	</head>
+<body>
+<div id= "first"> </div>
+<div id ="second"> </div>
+<div id ="third"> </div>
+<input id="btn1" type="button" value="Get move first!" />
+<input id="btn2" type="button" value="Get move second!" />
+<input id="btn3" type="button" value="Get move third!">
+<input id="btn4" type="button" value="Get move all!">
+<input id="btn5" type="button" value="STOP!">
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Конструктор Function()</title>
+
+    <script type="text/javascript">
+
+      function Human (firstName, lastName, age, job, salary,sex) {
+	  
+	  this.firstName = firstName;
+	  this.lastName = lastName;
+	  this.age = age;
+	  this.work = job;
+	  this.salary = salary;
+	  this.sex = sex;
+	  }
+	  Human.prototype.sayMe = function () {
+	  document.write ("Hello! My name is " + this.firstName + " " + this.lastName + ". I am " + this.age + " years old. I work " + this.work + ". I am from " + Human.prototype.country 
+	  + ". <br />");  
+	  }
+	  Human.prototype.country = "Russia";
+	  Human.prototype.malePension = 60;
+	  Human.prototype.femalePension = 55;
+	  
+	  Human.prototype.toString = function ()  {
+	  return "Age: " + this.age + "Salary: " + this.salary;
+	  }
+	  Human.prototype.calculatePension = function () {
+	  if (this.sex == "female") { 
+	  var pensionAge = Human.prototype.femalePension - this.age;
+	  document.write (this.firstName + " till pension age is " + pensionAge + " years. <br />");
+	  }
+	  else if (this.sex == "male"){
+	  var pensionAge = Human.prototype.malePension - this.age;
+	  document.write (this.firstName + " till pension age is " + pensionAge + " years. <br />");
+	  }
+	  }
+	  var a = new Human ("Alex", "Ivanov", 25, "lawyer", 2500, "male");
+	  /*document.write (a.firstName + " " + a.lastName + " "  + a.country + "<br />");
+	  document.write (a.toString()+ "<br />");*/
+	  var b = new Human ("Irina", "Petrova", 40, "doctor", 3000, "female");
+		/*document.write (b.firstName + " " + b.lastName + " "  + b.country + "<br />");
+	  document.write (b.toString()+ "<br />");
+	  a.sayMe();
+	  b.sayMe();*/
+	  a.calculatePension();
+	  b.calculatePension();
+	  
+	  </script>
+	
+
+</head>
+<body>
+</body>
+</html>

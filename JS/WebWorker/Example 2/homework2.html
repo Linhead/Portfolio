@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+
+<title>Video element</title>
+ <script type="text/javascript">
+ window.onload=function(){
+function Tooltip() {  
+            this.tooltip = document.createElement("div"); 
+            this.tooltip.style.position = "absolute";     
+            this.tooltip.style.visibility = "hidden";
+            this.tooltip.className = "tooltip";
+        }
+
+        
+        Tooltip.prototype.show = function (text, x, y) {
+            this.tooltip.innerHTML = text;             // Текст подсказки
+            this.tooltip.style.left = x + "px";        // Координаты
+            this.tooltip.style.top = y + "px";
+            this.tooltip.style.visibility = "visible";
+
+            if (this.tooltip.parentNode != document.body)
+                document.body.appendChild(this.tooltip);
+        };
+
+        Tooltip.prototype.hide = function () {
+            this.tooltip.style.visibility = "hidden";
+        };
+        function mouseOutHandler() {
+            t.hide();
+        }
+          
+
+        var t = new Tooltip();
+		
+		if (window.Worker) {	
+			
+			
+		   var $ = function (id) { return document.getElementById(id) }
+		
+		var par1 = $("p1");
+		var par2 = $("p2");
+		
+		
+		
+		var result = $("par");
+		var button = document.querySelectorAll('input[type="button"]');
+		for (var i = 0; i < button.length; i++) {
+			button[i].addEventListener('click', (function()  {
+        var first = $("value1").value;
+		var second = $("value2").value;
+		var worker;
+		switch (this.value) {
+			case'+':
+			worker = new Worker("worker1.js");
+			break;
+			case'-':
+			worker = new Worker("worker2.js");
+			break;
+			case'*':
+			worker = new Worker("worker3.js");
+			break;
+			case'/':
+			worker = new Worker("worker4.js");
+			break;
+		}
+		Calculation (first, second, worker);
+          
+		}));
+	}
+			
+			
+		function Calculation (first, second, worker) {
+			result.textContent = "Результат действия равен :"; 
+		if (first == "") {
+			$("value2").style.borderColor="";
+				t.show("Пожалуйста введите первое значение!", par1.offsetLeft + 170, par1.offsetTop);
+				$("value1").style.borderColor= "red";
+				return false;
+		
+		}
+		else if (second == "") {
+			$("value1").style.borderColor= "";
+			t.show("Пожалуйста введите второе значение!", par2.offsetLeft + 170, par2.offsetTop);
+			$("value2").style.borderColor="red";
+			return false;
+			
+		}
+		else {
+			$("value1").style.borderColor= "";
+			$("value2").style.borderColor="";
+			
+			first = Number.parseInt(first);
+			second = Number.parseInt(second);
+		worker.postMessage([first, second]);
+			console.log('Сообщение отправлено');
+			
+			//Создание обработчика для получения сообщений от потока
+			worker.onmessage = function (e) {
+                result.textContent += e.data;
+				console.log('Сообщение получено');
+				}
+            };
+		}
+		
+		}
+
+		$("clearButton").onclick = function(){
+			var txt = document.querySelectorAll('input[type="text"]');
+			for (var i = 0; i < txt.length; i++) {
+				txt[i].value = "";
+				result.textContent= "Результат действия равен :";
+			}
+}
+		
+		}
+
+ 
+ </script>
+    <style>
+	
+	</style>
+</head>
+<body>
+<p id="p1"> 
+<input type = "text" id = "value1">
+</p>
+<p id="p2"> 
+<input type = "text" id = "value2">
+</p>
+<input type = "button" value = "+" >
+<input type = "button" value = "-" >
+<input type = "button" value = "*" >
+<input type = "button" value = "/" >
+<button id="clearButton">Очистить</button>
+
+ <p id = "par">Результат действия равен :</p>
+</body>
+</html>

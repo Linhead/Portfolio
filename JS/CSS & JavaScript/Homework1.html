@@ -1,0 +1,44 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Inline CSS</title>
+    <link href="css.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript">
+    window.onload = function () {
+        var counter = -1;
+        var button = document.getElementsByTagName("input")[0];
+
+        button.onclick = function () {
+              var div = document.getElementsByTagName("div");
+              counter ++;
+            if (counter < 1) {
+          
+            div[counter].style.backgroundColor = "red";
+           
+            }
+            else if (4>= counter >= 1  ) {
+                div[counter].style.backgroundColor = "red";
+                div[counter-1].style.backgroundColor = "green";
+            }
+            else {
+            div[counter-1].style.backgroundColor = "green";
+            counter = -1;
+        }
+            
+            
+            
+            
+            
+        }
+}
+    
+</script>
+</head>
+<body>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div style="float:none"></div>
+<input type="button" value="Сменить цвет">
+    </body>
+    </html>

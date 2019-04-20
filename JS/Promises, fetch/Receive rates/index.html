@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Promises. Homework 2</title>
+    <script>
+        window.addEventListener("load", function () {
+            const btn = document.querySelector('#btn');
+            
+            btn.addEventListener('click', function () {
+                const table = document.querySelector('#table');
+                if (table !== null && table !== undefined) {
+                table.remove();
+                    }
+                getRate('https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json')
+                    .then(response => response.json())
+                    .then(filterRate)
+                    .then(createTable)
+                    .catch(err => document.body.appendChild(err));
+            }, false);
+
+            function getRate(url) {
+
+                return fetch(url, {
+                    method: 'post',
+                    headers: {
+                        "Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
+                    },
+                    body: 'foo=bar&lorem=ipsum'
+                });
+            };
+
+            let filterRate = rate => {
+                if (Array.isArray(rate)) {
+                    let listRate = [];
+                    switch (document.querySelector('#selectValue').value) {
+                        case "Больше":
+                            listRate = rate.filter(value => {
+                                if (value.rate > document.querySelector('#number').value) {
+                                    return true;
+                                } else {
+                                    return false;
+                                }
+                            }); 
+                            break;
+                        case "Меньше":
+                            listRate = rate.filter(value => {
+                                if (value.rate < document.querySelector('#number').value) {
+                                    return true;
+                                } else {
+                                    return false;
+                                }
+                               
+                            }); 
+                            break;
+                        case "Равно":
+                            listRate = rate.filter(value => {
+                                if (value.rate == document.querySelector('#number').value) {
+                                    return true;
+                                } else {
+                                    return false;
+                                }
+                                
+                            });
+                            break;
+                    }
+                    return listRate;
+                } else {
+                    document.body.appendChild("данные не получены");
+                    return;
+                }
+            }
+
+            let createTable = listRate => {
+                let tableArr = ['<table id="table">'];
+
+                listRate.forEach(elem => {
+                    tableArr.push('<tr><td>' + elem.txt + '</td><td>' + elem.rate + '</td></tr>')
+                });
+
+                tableArr.push('</table>');
+                let divTable = document.createElement('div');
+                divTable.innerHTML = tableArr.join('\n');
+                document.body.appendChild(divTable);
+            }
+
+          
+
+
+
+
+        });
+    </script>
+
+</head>
+
+<body>
+    <p>
+        Получить курсы валют значения которых <select name="value" required autofocus id="selectValue">
+            <option value="Больше"> Больше </option>
+            <option value="Равно"> Равно </option>
+            <option value="Меньше"> Меньше </option>
+        </select>
+        числа <input type="number" id="number" value="25">
+    </p>
+    <p> <input type="button" value="Получить" id="btn"></p>
+</body>
+
+</html>
