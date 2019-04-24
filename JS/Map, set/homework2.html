@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Map homework</title>
+</head>
+<!-- Данное приложение позволяет в полях ввода текста выбирать ранее введённые значения с помощью нажатися стрелок вверх-вниз-->
+<body>
+
+    <input type="search">
+    <input type="text">
+
+    <script>
+        window.addEventListener("load", function () {
+            let inputs = document.querySelectorAll("input");
+
+            let map = new Map;
+
+            for (let input of inputs) {
+                let values = new Set();
+                map.set(input, [])
+                let index = 0;
+                input.addEventListener("blur", function () {
+                    if (this.value !== "") {
+                        values.add(this.value);
+                    }
+                    map.set(this, values);
+                    this.value = '';
+                    index = 0;
+                });
+
+                input.addEventListener("keydown", function (e) {
+                    let valuesSet = map.get(this);
+                    let valuesArray = Array.from(valuesSet);
+                    if (e.key == "ArrowDown") {
+                        if (index < valuesArray.length) {
+                            let inputValue = valuesArray[index];
+                            if (inputValue !== undefined) {
+                                this.value = inputValue;
+                                index++;
+                            }
+                        }
+                        e.preventDefault();
+                    }
+
+                    if (e.key == "ArrowUp") {
+                        if (index !== 0 && index < valuesArray.length + 1) {
+
+                            let inputValue = valuesArray[index - 2];
+                            if (inputValue !== undefined) {
+                                this.value = inputValue;
+                                index--;
+                            }
+                        }
+                        e.preventDefault();
+                    }
+
+                })
+            }
+
+
+
+
+        });
+    </script>
+
+</body>

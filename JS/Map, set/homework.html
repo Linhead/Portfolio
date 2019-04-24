@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Set</title>
+</head>
+<body>
+
+<p> Введите число: <input type ="number">  
+<button type ="submit" id ="button"> Ввести </button> </p>
+<p >Введённые Вами числа (без повторений): <span id = "countField"> </span> </p>
+    <script>
+	/*let mySet = new Set ();
+	mySet.add (1);
+	mySet.add (2);
+	mySet.add (3);
+	mySet.add (2);
+	
+	console.log (mySet);
+	console.log (mySet.size);
+	console.log (mySet.has (3));
+	console.log (mySet.has (4));
+	
+	let myArray = [11,22,33];
+	
+	myArray.forEach (item => {
+	if (item%2 !== 1) {
+	mySet.add (item)
+	};
+	});
+	
+	console.log (mySet);
+	let sum = 0;
+	for (let elem of mySet) {
+		sum = sum + elem;
+		
+	}
+	console.log (sum);*/
+	
+	window.addEventListener("load", function () {
+    'use strict';
+	
+	let mySet = new Set ();
+	let countField = document.querySelector("#countField");
+	let input = document.querySelector("input");
+	document.querySelector("#button").addEventListener ("click", function () {
+		countField.innerText = "";
+		mySet.add (input.value);
+	
+		mySet.forEach ((item) => {
+		countField.innerText += item + ",  ";
+		}		)
+		
+
+		countField.innerText = countField.innerText.substring(0, countField.innerText.length - 1);
+		input.value = "";
+	});
+	
+	});
+	
+	
+	</script>
+</body>
+</html>
