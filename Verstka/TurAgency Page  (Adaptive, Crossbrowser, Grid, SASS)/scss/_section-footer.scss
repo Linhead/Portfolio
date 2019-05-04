@@ -1,0 +1,359 @@
+.footer {
+    @include displayGrid();
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: minmax($size-width, $size-width* 13.6);
+    background: #363b44;
+    color: $color-gray;
+    font: 12px/23px $font_for_footer;
+    letter-spacing: .32px;
+    padding: 5px 0;
+
+///////////////////////////// ПЕРВАЯ СТРОКА
+    .footer_links {
+        @include displayGrid();
+        grid-template-columns: repeat(3, 1fr);
+        width: $size-width*10.24;
+        padding: 25px 20px;
+        @include justifySelf(center);
+        border-bottom: 1px solid #4a4f57;
+
+        .links {
+            @include displayGrid();
+            grid-template-rows: auto auto;
+            grid-row-gap: $size-gap*1.5;
+        }
+
+///////////////////////////////// ПЕРВЫЙ СТОЛБЕЦ
+        .footer_links_popular-countries {
+            p {
+                color: $color-white;
+                font: 700 12px/12px $font_for_footer;
+                text-transform: uppercase;
+            }
+
+            ul {
+                width: 66%;
+
+                li {
+                    float: left;
+                    padding-right: 20px;
+                    padding-bottom: 10px;
+
+                    a {
+                        color: $color-white;
+                        font: 300 12px/12px $font_for_footer;
+                        text-transform: uppercase;
+
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                    }
+                }
+            }
+        }
+
+///////////////////////// ВТОРОЙ СТОЛБЕЦ
+        .footer_links_nav {
+            padding-left: 20px;
+
+            ul {
+                li {
+                    display: block;
+                    padding-bottom: 18px;
+
+                    a {
+                        color: $color-white;
+                        font: 700 12px/12px $font_for_footer;
+                        letter-spacing: 1.5px;
+                        text-transform: uppercase;
+                        
+
+                        &:hover {
+                            color: darken($color-white, 15%);
+                        }
+                    }
+                }
+            }
+
+        }
+
+///////////////////////////////// ТРЕТИЙ СТОЛБЕЦ
+        .footer_links_tour-collections {
+            padding-left: 20px;
+
+            p {
+                color: $color-white;
+                font: 700 12px/12px $font_for_footer;
+                text-transform: uppercase;
+            }
+
+            ul {
+                width: 350px;
+
+                li {
+                    float: left;
+                    padding-right: 20px;
+                    padding-bottom: 5px;
+
+                    a {
+                        color: $color-white;
+                        font: 300 12px/12px $font_for_footer;
+                        text-transform: uppercase;
+
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+
+
+//////////////////////////////////////////////////  ВТОРАЯ СТРОКА  
+    .footer_info {
+        @include displayGrid();
+        grid-template-columns: repeat(3, 1fr);
+        width: $size-width*10.24;
+        padding: 25px 20px;
+        @include justifySelf(center);
+
+//////////////////////////////////// ПЕРВЫЙ СТОЛБЕЦ
+        .footer_links_adress {
+            p {
+                color: $color-white;
+
+                a {
+                    color: $color-white;
+                    border-bottom: 1px dotted;
+                    font: 11px/28px $font_for_footer;
+                }
+            }
+        }
+
+////////////////////////////////////// ВТОРОЙ СТОЛБЕЦ        
+        .footer_links_copyright {
+            font: 400 10px/21px $font-secondary;
+            color: $color-gray;
+            padding: 0 0 2px;
+
+            a {
+                color: $color-gray;
+                text-decoration: underline;
+            }
+        }
+
+////////////////////////////////////// ТРЕТИЙ СТОЛБЕЦ        
+        .footer_links_socialnetworks {
+            margin-left: -20px;
+
+            .footer_links_socialnetworks_btns {
+                @include displayInlineFlex;
+                margin-top: 5px;
+
+                &:hover {
+                    cursor: pointer;
+                }
+
+                .socialnetwork_btn {
+                    display: block;
+                    width: 45px;
+                    height: 42px;
+                    background-size: cover;
+                    border-radius: 3px;
+
+                }
+
+                .vk_btn {
+                    background-image: url(../icons/vk.png);
+                    margin-right: 21px;
+                }
+
+                .fb_btn {
+                    background-image: url(../icons/fb.png)
+                }
+            }
+
+            p {
+                margin-top: 13px;
+
+                a {
+                    color: $color-gray;
+                    display: inline-block;
+                    font: 300 12px/10px $font-secondary;
+                    border-bottom: 1px solid;
+
+                    &:hover {
+                        color: lighten($color-gray, 5%)
+                    }
+                }
+            }
+
+        }
+    }
+}
+
+///////////////////////////////////////////////////////////////////////////////////// МЕДИА ЗАПРОСЫ ////////////////////////////////////////////////////////////////////////
+@media screen and (max-width:1024px) {
+    .footer {
+        width: auto;
+        .footer_links {
+            width: auto;
+
+            .links{
+                grid-row-gap: 0;
+                grid-template-rows: 0.2fr 1fr;
+            }
+        }
+
+        .footer_info {
+            width: auto;
+            @include justifySelf(normal);
+        }
+    }
+}
+
+@media screen and (max-width:860px) {
+    .footer {
+       
+        .footer_links {
+            width: auto;
+
+            .footer_links_tour-collections {
+                padding-left: 0;
+
+                ul {
+                    width: auto;
+                }
+            }
+
+            .footer_links_popular-countries {
+                padding-left: 0;
+
+                ul {
+                    width: auto;
+                }
+            }
+
+            .links{
+                grid-row-gap: 0.5em;
+                grid-template-rows: 0.2fr 1fr;
+            }
+        }
+
+    }
+}
+
+@media screen and (max-width:740px) {
+    .footer {
+       
+        .footer_links {
+            grid-template-columns: repeat(3, auto);
+
+        }
+        .footer_info {
+            
+            .footer_links_socialnetworks {
+                margin: 0;
+            }
+        }
+    }
+    
+}
+
+        
+
+
+
+@media screen and (max-width:660px) {
+    .footer {
+       
+        .footer_links {
+            grid-template-columns: repeat(3, auto);
+
+        }
+
+        .footer_info {
+            
+            .footer_links_copyright a {
+                @include displayGrid();
+            }
+            .footer_links_socialnetworks {
+                margin-left: 10px;
+                
+                    p {
+
+                        a {
+                            text-decoration: underline;
+                            border: none;   
+                        }
+                    }
+            }
+        }
+    }
+}
+
+@media screen and (max-width:320px) {
+    .footer {
+        font: 10px/16px $font_for_footer;
+        .footer_links {
+            .links {
+                     grid-row-gap: 0;
+            }
+            .footer_links_popular-countries {
+                p {
+                    font: 300 10px/10px $font_for_footer;
+                }
+
+                ul {
+                    li {
+                        a {
+                            font: 300 10px/10px $font_for_footer;
+                        }
+                    }
+                }
+        }
+
+        .footer_links_nav {
+            padding-left: 10px;
+            ul {
+                li {
+                    a {
+                        font: 300 10px/10px $font_for_footer;
+                    }
+                }
+            }
+        }
+
+        .footer_links_tour-collections {
+            p {
+                font: 300 10px/10px $font_for_footer;
+            }
+
+            ul {
+                li {
+                    a {
+                        font: 300 10px/10px $font_for_footer;
+                    }
+                }
+            }
+        }
+}
+
+.footer_info {
+
+    .footer_links_adress {
+        p {
+            a {
+                font: 10px/19px $font_for_footer;
+            }
+        }
+    }
+}
+
+
+
+    }
+
+}

@@ -1,0 +1,873 @@
+<html>
+
+<head>
+	<meta charset="utf-8" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="css/normalize.css" rel="stylesheet">
+	<link href="css/main.css" rel="stylesheet">
+	<link href="css/jquery-ui.css" rel="stylesheet">
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="js/jquery.ui.touch-punch.min.js"></script>
+
+	<title>Test work</title>
+
+<body>
+
+	<div class="grid">
+
+		<header class="header">
+
+			<div class="mainPanel">
+				<div class="wrap_menu">
+
+					<button class="btn wrap_menu_button" id="menu_open">
+
+					</button>
+				</div>
+				<div class="search">
+					<input type="search" name="q" maxlength="50" id="search_field">
+				</div>
+
+
+				<div class="menu">
+					<ul class="menu_nav">
+						<li class="menu_nav_item">
+							<a href="#" class="linc menu_nav_item_linc">Туристам</a>
+						</li>
+						<li class="menu_nav_item">
+							<a href="#" class="linc menu_nav_item_linc">Информация</a>
+						</li>
+						<li class="menu_nav_item">
+							<a href="#" class="linc menu_nav_item_linc">Агентам</a>
+						</li>
+						<li class="menu_nav_item">
+							<a href="#" class="linc menu_nav_item_linc">Контакты</a>
+						</li>
+					</ul>
+				</div>
+
+				<div class="contacts">
+
+					<p class="city">
+						<span id="city_choice">
+							Ваш город:
+						</span>
+						<a href="#" id="city_link">
+							Екатеринбург
+						</a>
+					</p>
+
+					<p class="phone">
+						<span id="phone_number">
+							+7 (343) 334311-11
+						</span>
+					</p>
+
+				</div>
+
+			</div>
+
+		</header>
+
+		<section class="searchForm">
+
+			<div class="navigation">
+				<ul class="nav">
+					<li class="nav__item">
+						<a href="#" class="nav__link">Главная </a>
+					</li>
+					<li class="nav__item">
+						<a href="#" class="nav__link">Туристам </a>
+					</li>
+					<li class="nav__item">
+						<a href="#" class="nav__link"> Горящие туры </a>
+					</li>
+				</ul>
+			</div>
+
+			<div class="head">
+				<h1> Горящие туры </h1>
+			</div>
+
+			<div class="form">
+				<div class="form_row">
+					<div class="form_row_column">
+						<p>Город вылета</p>
+						<input type="text" name="q" maxlength="50" id="search_field">
+					</div>
+					<div class="form_row_column">
+						<p>Список стран</p>
+						<input type="text" name="q" maxlength="50" id="search_field">
+					</div>
+					<div class="form_row_column">
+						<p>Курорт</p>
+						<input type="text" name="q" maxlength="50" id="search_field">
+
+					</div>
+					<div class="form_row_column">
+						<div class="inputrnage">
+							<p>Выберите количество дней</p>
+							<input type="text" name="daterange" value="6-14" id="daterange">
+							<div class="icon">
+								<div class="icon_range">
+									&nbsp;
+								</div>
+							</div>
+							<div id="range" style="display: none">
+
+							</div>
+						</div>
+					</div>
+					<div class="form_row_column">
+						<p>Категория отеля</p>
+						<p class="allstars">
+							<span>
+								<a class="star"> </a>
+								<a class="star"> </a>
+								<a class="star"> </a>
+								<a class="star"> </a>
+								<a class="star"> </a>
+							</span>
+							<span><input type="checkbox" id="checkbox" />
+								<label for="checkbox">Или более звёзд</label>
+							</span>
+						</p>
+					</div>
+					<div class="form_row_column">
+						<input type="button" value="Найти туры" class="form_row_column_btn">
+					</div>
+
+				</div>
+			</div>
+
+		</section>
+
+		<section class="tours">
+			<div class="tours_head">
+				<div class="tours_head_result">
+					Найдено туров: <span id="count">34</span>
+				</div>
+				<div class="tours_head_btns">
+					<a href="#">
+						По имени
+					</a>
+					<a href="#">
+						По цене
+					</a>
+					<a href="#">
+						По рейтингу
+					</a>
+				</div>
+			</div>
+
+			<div class="tours_content">
+
+				<div class="tours_content_tour">
+					<div class="tours_content_tour_picture">
+							<img src="img/bulg1.png">
+					</div>
+					<div class="stars tours_content_tour_stars_2stars">
+
+					</div>
+					<div class="tours_content_tour_info">
+						<div class="tours_content_tour_place">
+							<p>САН-СИРО, <span> Болгария </span></p>
+						</div>
+						<div class="tours_content_tour_price">
+							<p>
+								<span class="tours_content_tour_price_new">64 523 ₽</span> 
+								<span class="tours_content_tour_price_old"> 88 300 ₽ </span>
+							</p>
+						</div>
+					</div>
+					<div class="tours_content_tour_conditions">
+						<p>Из Москвы </p>
+						<p>24 июня </p>
+						<p> 7 ночей </p>
+					</div>
+					<div class="tours_content_tour_more">
+						<div class="stars tours_content_tour_more_3stars">
+
+						</div>
+						<div class="tours_content_tour_more_info">
+							<span class="tours_content_tour_more_info_name">САН-СИРО</span>
+							<span class="tours_content_tour_more_info_city">Болгария</span>
+						</div>
+						<div class="tours_content_tour_more_conditions">
+
+							<div class="tours_content_tour_more_conditions_icon">
+
+								<i class="ico ico-map-marker"></i>
+
+								<span> Из Москвы </span>
+
+							</div>
+							<div class="tours_content_tour_more_conditions_icon">
+
+								<i class="ico ico-calendar"></i>
+
+								<span> 24 июня </span>
+
+							</div>
+
+
+							<div class="tours_content_tour_more_conditions_icon">
+								<i class="ico ico-nights"></i>
+								7 ночей
+
+							</div>
+							<div class="tours_content_tour_more_conditions_icon">
+								<i class="ico ico-food"></i>
+								Завтрак
+
+							</div>
+
+						</div>
+						<div class="tours_content_tour_more_price">
+							<div class="tours_content_tour_more_price_old"><span>64 523 ₽</span></div>
+							<div class="tours_content_tour_more_price_new"><span>88 300 ₽</span></div>
+							<p>C человека</p>
+						</div>
+						<input type="button" value="Подробнее" class="tours_content_tour_more_btn">
+					</div>
+				</div>
+
+				<div class="tours_content_tour">
+					<div class="tours_content_tour_picture">
+							<img src="img/abh2.png">
+					</div>
+					<div class="stars tours_content_tour_stars_2stars">
+
+					</div>
+					<div class="tours_content_tour_info">
+						<div class="tours_content_tour_place">
+							<p>ЗОЛОТОЙ БЕРЕГ - ТЕРЛО, <span>ПИЦУНДА, АБХАЗИЯ</span></p>
+						</div>
+						<div class="tours_content_tour_price">
+							<p>
+								<span class="tours_content_tour_price_new">64 523 ₽</span>
+								<span class="tours_content_tour_price_old"> 96 566 ₽</span>
+							</p>
+						</div>
+					</div>
+					<div class="tours_content_tour_conditions">
+						<p>Из Москвы </p>
+						<p>24 июня </p>
+						<p> 7 ночей </p>
+					</div>
+					<div class="tours_content_tour_more">
+						<div class="stars tours_content_tour_more_2stars">
+
+						</div>
+						<div class="tours_content_tour_more_info">
+							<span class="tours_content_tour_more_info_name">ЗОЛОТОЙ БЕРЕГ - ТЕРЛО</span>
+							<span class="tours_content_tour_more_info_city">ПИЦУНДА, АБХАЗИЯ</span>
+						</div>
+						<div class="tours_content_tour_more_conditions">
+
+							<div class="tours_content_tour_more_conditions_icon">
+								<i class="ico ico-map-marker"></i>
+								Из Москвы
+
+							</div>
+							<div class="tours_content_tour_more_conditions_icon">
+								<i class="ico ico-calendar"></i>
+								24 июня
+
+							</div>
+
+							<div class="tours_content_tour_more_conditions_icon">
+								<i class="ico ico-nights"></i>
+								7 ночей
+
+							</div>
+							<div class="tours_content_tour_more_conditions_icon">
+								<i class="ico ico-food"></i>
+								Завтрак
+
+							</div>
+
+						</div>
+						<div class="tours_content_tour_more_price">
+							<div class="tours_content_tour_more_price_old"><span>85 236 ₽</span></div>
+							<div class="tours_content_tour_more_price_new"><span>96 566 ₽</span></div>
+							<p>C человека</p>
+						</div>
+						<input type="button" value="Подробнее" class="tours_content_tour_more_btn">
+					</div>
+				</div>
+
+				<div class="tours_content_tour">
+					<div class="tours_content_tour_picture">
+							<img src="img/abh3.png">
+					</div>
+					<div class="stars stars tours_content_tour_stars_4stars">
+
+					</div>
+					<div class="tours_content_tour_info">
+						<div class="tours_content_tour_place">
+							<p>ИВА ГОСТИНИЦА,<span> НОВЫЙ АФОН, АБХАЗИЯ</span></p>
+						</div>
+						<div class="tours_content_tour_price">
+							<p>
+								<span class="tours_content_tour_price_new">64 523 ₽</span>
+								<span class="tours_content_tour_price_old">85 600 ₽</span>
+							</p>
+						</div>
+					</div>
+					<div class="tours_content_tour_conditions">
+						<p>Из Москвы </p>
+						<p>24 июня </p>
+						<p> 7 ночей </p>
+					</div>
+					<div class="tours_content_tour_more">
+						<div class="stars tours_content_tour_more_4stars">
+
+						</div>
+						<div class="tours_content_tour_more_info">
+							<span class="tours_content_tour_more_info_name">ИВА ГОСТИНИЦА</span>
+							<span class="tours_content_tour_more_info_city">НОВЫЙ АФОН, АБХАЗИЯ</span>
+						</div>
+						<div class="tours_content_tour_more_conditions">
+
+							<div class="tours_content_tour_more_conditions_icon">
+								<i class="ico ico-map-marker"></i>
+								Из Москвы
+
+							</div>
+							<div class="tours_content_tour_more_conditions_icon">
+								<i class="ico ico-calendar"></i>
+								24 июня
+
+							</div>
+
+							<div class="tours_content_tour_more_conditions_icon">
+								<i class="ico ico-nights"></i>
+								7 ночей
+
+							</div>
+							<div class="tours_content_tour_more_conditions_icon">
+								<i class="ico ico-food"></i>
+								Завтрак
+
+							</div>
+
+						</div>
+						<div class="tours_content_tour_more_price">
+							<div class="tours_content_tour_more_price_old"><span>75 233 ₽</span></div>
+							<div class="tours_content_tour_more_price_new"><span>85 600 ₽</span></div>
+							<p>C человека</p>
+						</div>
+						<input type="button" value="Подробнее" class="tours_content_tour_more_btn">
+					</div>
+				</div>
+
+				<div class="tours_content_tour">
+					<div class="tours_content_tour_picture">
+							<img src="img/abh4.png">
+					</div>
+					<div class="stars tours_content_tour_stars_2stars">
+
+					</div>
+					<div class="tours_content_tour_info">
+						<div class="tours_content_tour_place">
+							<p>ДЖАНАТ, <span>СУХУМ, АБХАЗИЯ</span></p>
+						</div>
+						<div class="tours_content_tour_price">
+							<p>
+								<span class="tours_content_tour_price_new">64 523 ₽</span>
+								<span class="tours_content_tour_price_old">88 300 ₽ </span>
+							</p>
+						</div>
+					</div>
+					<div class="tours_content_tour_conditions">
+						<p>Из Москвы </p>
+						<p>24 июня </p>
+						<p> 7 ночей </p>
+					</div>
+					<div class="tours_content_tour_more">
+						<div class="stars tours_content_tour_more_2stars">
+
+						</div>
+						<div class="tours_content_tour_more_info">
+							<span class="tours_content_tour_more_info_name">ДЖАНАТ</span>
+							<span class="tours_content_tour_more_info_city">СУХУМ, АБХАЗИЯ</span>
+						</div>
+						<div class="tours_content_tour_more_conditions">
+
+							<div class="tours_content_tour_more_conditions_icon">
+								<i class="ico ico-map-marker"></i>
+								Из Москвы
+
+							</div>
+							<div class="tours_content_tour_more_conditions_icon">
+								<i class="ico ico-calendar"></i>
+								24 июня
+
+							</div>
+
+							<div class="tours_content_tour_more_conditions_icon">
+								<i class="ico ico-nights"></i>
+								7 ночей
+
+							</div>
+							<div class="tours_content_tour_more_conditions_icon">
+								<i class="ico ico-food"></i>
+								Завтрак
+
+							</div>
+
+						</div>
+						<div class="tours_content_tour_more_price">
+							<div class="tours_content_tour_more_price_old"><span>52 465 ₽</span></div>
+							<div class="tours_content_tour_more_price_new"><span>88 300 ₽</span></div>
+							<p>C человека</p>
+						</div>
+						<input type="button" value="Подробнее" class="tours_content_tour_more_btn">
+					</div>
+				</div>
+
+				<div class="tours_content_tour">
+					<div class="tours_content_tour_picture">
+							<img src="img/abh5.png">
+					</div>
+					<div class="stars tours_content_tour_stars_3stars">
+
+					</div>
+					<div class="tours_content_tour_info">
+						<div class="tours_content_tour_place">
+							<p>ЭВКАЛИПТ, <span>СУХУМ, АБХАЗИЯ</span></p>
+						</div>
+						<div class="tours_content_tour_price">
+							<p> 
+								<span class="tours_content_tour_price_new">64 523 ₽</span>
+								<span class="tours_content_tour_price_old">96 566 ₽</span>
+							</p>
+						</div>
+					</div>
+					<div class="tours_content_tour_conditions">
+						<p>Из Москвы </p>
+						<p>24 июня </p>
+						<p> 7 ночей </p>
+					</div>
+					<div class="tours_content_tour_more">
+						<div class="stars tours_content_tour_more_3stars">
+
+						</div>
+						<div class="tours_content_tour_more_info">
+							<span class="tours_content_tour_more_info_name">ЭВКАЛИПТ</span>
+							<span class="tours_content_tour_more_info_city">СУХУМ, АБХАЗИЯ</span>
+						</div>
+						<div class="tours_content_tour_more_conditions">
+
+							<div class="tours_content_tour_more_conditions_icon">
+								<i class="ico ico-map-marker"></i>
+								Из Москвы
+
+							</div>
+							<div class="tours_content_tour_more_conditions_icon">
+								<i class="ico ico-calendar"></i>
+								24 июня
+
+							</div>
+
+							<div class="tours_content_tour_more_conditions_icon">
+								<i class="ico ico-nights"></i>
+								7 ночей
+
+							</div>
+							<div class="tours_content_tour_more_conditions_icon">
+								<i class="ico ico-food"></i>
+								Завтрак
+
+							</div>
+
+						</div>
+						<div class="tours_content_tour_more_price">
+							<div class="tours_content_tour_more_price_old"><span>85 236 ₽</span></div>
+							<div class="tours_content_tour_more_price_new"><span>96 566 ₽</span></div>
+							<p>C человека</p>
+						</div>
+						<input type="button" value="Подробнее" class="tours_content_tour_more_btn">
+					</div>
+				</div>
+
+				<div class="tours_content_tour">
+					<div class="tours_content_tour_picture">
+							<img src="img/abh6.png">
+					</div>
+					<div class="stars tours_content_tour_stars_4stars">
+
+					</div>
+					<div class="tours_content_tour_info">
+						<div class="tours_content_tour_place">
+							<p>ПАРУС ПАНСИОНАТ ПИЦУНДА, <span>ГУДАУТА, АБХАЗИЯ</span></p>
+						</div>
+						<div class="tours_content_tour_price">
+							<p>
+								<span class="tours_content_tour_price_new">64 523 ₽</span>
+								 <span class="tours_content_tour_price_old">85 600 ₽</span>
+								</p>
+						</div>
+					</div>
+					<div class="tours_content_tour_conditions">
+						<p>Из Москвы </p>
+						<p>24 июня </p>
+						<p> 7 ночей </p>
+					</div>
+					<div class="tours_content_tour_more">
+						<div class="stars tours_content_tour_more_4stars">
+
+						</div>
+						<div class="tours_content_tour_more_info">
+							<span class="tours_content_tour_more_info_name">ПАРУС ПАНСИОНАТ</span>
+							<span class="tours_content_tour_more_info_city">ГУДАУТА, АБХАЗИЯ</span>
+						</div>
+						<div class="tours_content_tour_more_conditions">
+
+							<div class="tours_content_tour_more_conditions_icon">
+								<i class="ico ico-map-marker"></i>
+								Из Москвы
+
+							</div>
+							<div class="tours_content_tour_more_conditions_icon">
+								<i class="ico ico-calendar"></i>
+								24 июня
+
+							</div>
+
+							<div class="tours_content_tour_more_conditions_icon">
+								<i class="ico ico-nights"></i>
+								7 ночей
+
+							</div>
+							<div class="tours_content_tour_more_conditions_icon">
+								<i class="ico ico-food"></i>
+								Завтрак
+
+							</div>
+
+						</div>
+						<div class="tours_content_tour_more_price">
+							<div class="tours_content_tour_more_price_old"><span>75 233 ₽</span></div>
+							<div class="tours_content_tour_more_price_new"><span>85 600 ₽</span></div>
+							<p>C человека</p>
+						</div>
+						<input type="button" value="Подробнее" class="tours_content_tour_more_btn">
+					</div>
+				</div>
+
+				<div class="tours_content_tour">
+					<div class="tours_content_tour_picture">
+							<img src="img/abh7.png">
+					</div>
+					<div class="stars tours_content_tour_stars_2stars">
+
+					</div>
+					<div class="tours_content_tour_info">
+						<div class="tours_content_tour_place">
+							<p>АФОН ДАКИР, <span>НОВЫЙ АФОН, АБХАЗИЯ</span></p>
+						</div>
+						<div class="tours_content_tour_price">
+							<p>
+								<span class="tours_content_tour_price_new">64 523 ₽</span>
+								 <span class="tours_content_tour_price_old">88 300 ₽</span>
+								</p>
+						</div>
+					</div>
+					<div class="tours_content_tour_conditions">
+						<p>Из Москвы </p>
+						<p>24 июня </p>
+						<p> 7 ночей </p>
+					</div>
+					<div class="tours_content_tour_more">
+						<div class="stars tours_content_tour_more_2stars">
+
+						</div>
+						<div class="tours_content_tour_more_info">
+							<span class="tours_content_tour_more_info_name">АФОН ДАКИР</span>
+							<span class="tours_content_tour_more_info_city">НОВЫЙ АФОН, АБХАЗИЯ</span>
+						</div>
+						<div class="tours_content_tour_more_conditions">
+
+							<div class="tours_content_tour_more_conditions_icon">
+								<i class="ico ico-map-marker"></i>
+								Из Москвы
+
+							</div>
+							<div class="tours_content_tour_more_conditions_icon">
+								<i class="ico ico-calendar"></i>
+								24 июня
+
+							</div>
+
+							<div class="tours_content_tour_more_conditions_icon">
+								<i class="ico ico-nights"> </i>
+								7 ночей
+
+							</div>
+							<div class="tours_content_tour_more_conditions_icon">
+								<i class="ico ico-food"></i>
+								Завтрак
+
+							</div>
+
+						</div>
+						<div class="tours_content_tour_more_price">
+							<div class="tours_content_tour_more_price_old"><span>55 455 ₽</span></div>
+							<div class="tours_content_tour_more_price_new"><span>88 300 ₽</span></div>
+							<p>C человека</p>
+						</div>
+						<input type="button" value="Подробнее" class="tours_content_tour_more_btn">
+					</div>
+				</div>
+
+				<div class="tours_content_tour">
+					<div class="tours_content_tour_picture">
+							<img src="img/abh8.png">
+					</div>
+					<div class="stars tours_content_tour_stars_2stars">
+
+					</div>
+					<div class="tours_content_tour_info">
+						<div class="tours_content_tour_place">
+							<p>АХРА ГОСТЕВОЙ ДОМ, <span>ГАГРА, АБХАЗИЯ</span></p>
+						</div>
+						<div class="tours_content_tour_price">
+							<p>
+								<span class="tours_content_tour_price_new">64 523 ₽</span>
+								<span class="tours_content_tour_price_old">96 566 ₽</span>
+							</p>
+						</div>
+					</div>
+					<div class="tours_content_tour_conditions">
+						<p>Из Москвы </p>
+						<p>24 июня </p>
+						<p> 7 ночей </p>
+					</div>
+					<div class="tours_content_tour_more">
+						<div class="stars tours_content_tour_more_2stars">
+
+						</div>
+						<div class="tours_content_tour_more_info">
+							<span class="tours_content_tour_more_info_name">АХРА ГОСТЕВОЙ ДОМ</span>
+							<span class="tours_content_tour_more_info_city">ГАГРА, АБХАЗИЯ</span>
+						</div>
+						<div class="tours_content_tour_more_conditions">
+
+							<div class="tours_content_tour_more_conditions_icon">
+								<i class="ico ico-map-marker"></i>
+								Из Москвы
+
+							</div>
+							<div class="tours_content_tour_more_conditions_icon">
+								<i class="ico ico-calendar"></i>
+								24 июня
+
+							</div>
+
+							<div class="tours_content_tour_more_conditions_icon">
+								<i class="ico ico-nights"></i>
+								7 ночей
+
+							</div>
+							<div class="tours_content_tour_more_conditions_icon">
+								<i class="ico ico-food"></i>
+								Завтрак
+
+							</div>
+
+						</div>
+						<div class="tours_content_tour_more_price">
+							<div class="tours_content_tour_more_price_old"><span>54 834 ₽</span></div>
+							<div class="tours_content_tour_more_price_new"><span>96 566 ₽</span></div>
+							<p>C человека</p>
+						</div>
+						<input type="button" value="Подробнее" class="tours_content_tour_more_btn">
+					</div>
+				</div>
+
+				<div class="tours_content_tour">
+					<div class="tours_content_tour_picture">
+							<img src="img/abh9.png">
+					</div>
+					<div class="stars tours_content_tour_stars_4stars">
+
+					</div>
+					<div class="tours_content_tour_info">
+						<div class="tours_content_tour_place">
+							<p>ПАРУС ПАНСИОНАТ ПИЦУНДА, <span>ГУДАУТА, АБХАЗИЯ</span></p>
+						</div>
+						<div class="tours_content_tour_price">
+							<p>
+								<span class="tours_content_tour_price_new">64 523 ₽</span>
+								<span class="tours_content_tour_price_old">86 600 ₽</span>
+							</p>
+						</div>
+					</div>
+					<div class="tours_content_tour_conditions">
+						<p>Из Москвы </p>
+						<p>24 июня </p>
+						<p> 7 ночей </p>
+					</div>
+					<div class="tours_content_tour_more">
+						<div class="stars tours_content_tour_more_4stars">
+
+						</div>
+						<div class="tours_content_tour_more_info">
+							<span class="tours_content_tour_more_info_name">ПАРУС ПАНСИОНАТ ПИЦУНДА</span>
+							<span class="tours_content_tour_more_info_city">ГУДАУТА, АБХАЗИЯ</span>
+						</div>
+						<div class="tours_content_tour_more_conditions">
+
+							<div class="tours_content_tour_more_conditions_icon">
+								<i class="ico ico-map-marker"></i>
+								Из Москвы
+
+							</div>
+							<div class="tours_content_tour_more_conditions_icon">
+								<i class="ico ico-calendar"> </i>
+								24 июня
+
+							</div>
+
+							<div class="tours_content_tour_more_conditions_icon">
+								<i class="ico ico-nights"></i>
+								7 ночей
+
+							</div>
+							<div class="tours_content_tour_more_conditions_icon">
+								<i class="ico ico-food"></i>
+								Завтрак
+
+							</div>
+
+						</div>
+						<div class="tours_content_tour_more_price">
+							<div class="tours_content_tour_more_price_old"><span>55 796 ₽</span></div>
+							<div class="tours_content_tour_more_price_new"><span>86 600 ₽</span></div>
+							<p>C человека</p>
+						</div>
+						<input type="button" value="Подробнее" class="tours_content_tour_more_btn">
+					</div>
+				</div>
+			</div>
+
+			<div class="tours_info">
+				<div>
+					<h4>Уверенность в путешествиях</h4>
+					<p>
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci veritatis nihil laborum
+						commodi obcaecati eaque dolorum molestias eligendi facilis dolore?
+						Blanditiis, quos ullam facere harum inventore temporibus voluptates pariatur error animi rerum.
+						Voluptas, doloremque? Atque iste ullam quam itaque magnam aut
+						deserunt iure rerum iusto?
+					</p>
+				</div>
+				<div>
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias earum quos aspernatur quam nam
+						sit quod officia quae perferendis distinctio quasi accusamus
+						sapiente reprehenderit repellendus excepturi quibusdam, beatae maiores vero, odit et. Quia modi
+						atque laudantium, unde minus iusto nulla consectetur. Enim dicta
+						aliquam nobis!
+					</p>
+				</div>
+				<div>
+					<p>
+						Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aspernatur minima voluptatem omnis,
+						facilis incidunt quos expedita velit vero accusamus libero,
+						sunt animi alias commodi architecto laborum exercitationem doloribus provident reiciendis.
+					</p>
+
+				</div>
+			</div>
+
+		</section>
+
+		<footer class="footer">
+			<div class="footer_links">
+				<div class="links footer_links_popular-countries">
+					<p> Популярные страны</p>
+					<ul>
+						<li><a href="#">Китай</a></li>
+						<li><a href="#">Тайланд</a></li>
+						<li><a href="#">Чехия</a></li>
+						<li><a href="#">Франция</a></li>
+						<li><a href="#">Греция</a></li>
+					</ul>
+				</div>
+				<div class="footer_links_nav">
+					<ul>
+						<li><a href="#">О компании</a></li>
+						<li><a href="#">Информация</a></li>
+						<li><a href="#">Корпоративным клиентам</a></li>
+					</ul>
+				</div>
+				<div class="links footer_links_tour-collections">
+					<p>Коллекции туров</p>
+					<ul>
+						<li> <a href="#">Свадебные туры</a></li>
+						<li><a href="#">Круизы</a></li>
+						<li><a href="#">Активный отдых</a></li>
+						<li><a href="#">Здоровье и СПА</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="footer_info">
+				<div class="footer_links_adress">
+					Центральный офис:
+					<p>Екатеринбург <br><a href="#">Другие офисы</a></p>
+				</div>
+				<div class="footer_links_copyright">
+					<p>© 2004–2015</p>
+					<p>Все права защищены. <a href="#"> Карта сайта </a> </p>
+				</div>
+				<div class="footer_links_socialnetworks">
+					<div class="footer_links_socialnetworks_btns">
+						<a href="#" class="socialnetwork_btn vk_btn"></a>
+						<a href="#" class="socialnetwork_btn fb_btn"></a>
+					</div>
+					<p>
+						<a href="#">Подписаться на рассылку</a>
+					</p>
+				</div>
+			</div>
+		</footer>
+
+		<div class="aside" id="mobile_menu">
+			<button class="btn aside_close" id="menu_close">
+
+			</button>
+
+			<div class="aside_menu">
+				<div class="aside_menu_links">
+					<ul class="aside_menu_links_box">
+						<li class="aside_menu_links_box_link">
+							<a href="#" class="linc">Туристам</a>
+						</li>
+						<li class="aside_menu_links_box_link">
+							<a href="#" class="linc">Информация</a>
+						</li>
+						<li class="aside_menu_links_box_link">
+							<a href="#" class="linc">Агентам</a>
+						</li>
+						<li class="aside_menu_links_box_link">
+							<a href="#" class="linc">Контакты</a>
+						</li>
+					</ul>
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</body>
+
+
+
+</html>
