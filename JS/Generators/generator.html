@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Приложение с использованием функции-генератора вывовит числа в диапазоне заданном пользователем по одиночке или сразу вместе в зависимости от выбора пользователя, 
+	проверяя при этом каждое число на чётность и простоту -->
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Generators</title>
+</head>
+
+<body>
+
+	Получить числа от:
+	<input type="number" value="1" class="number" id="value1">
+	до:
+	<input type="number" value="50" class="number" id="value2">
+	ошибка на числе:
+	<input type="number" value="49" class="number" id="value3">
+	<br>
+	<br>
+	<button type="submit" value="Зафиксировать значения" id="btn3"> Зафиксировать значения </button>
+	<button type="submit" value="Получить число" id="btn1"> Получить отдельное число </button>
+	<button type="submit" value="Получить все числа" id="btn2"> Получить все числа </button>
+
+	<script>
+		// получаем все числовые значения инпутов
+		let value1 = parseInt(document.querySelector('#value1').value);
+		let value2 = parseInt(document.querySelector('#value2').value);
+		let value3 = parseInt(document.querySelector('#value3').value);
+		// устанавливаем переключатель в режим "false"
+		let flag = false;
+		// создаём массив из всех инпутов
+		let inputNumbers = document.querySelectorAll(".number");
+		// если у инпута свойство readOnly выводим предупреждение
+		inputNumbers.forEach(function (input) {
+			input.addEventListener('focus', function () {
+				if (input.readOnly) {
+					console.log("Для изменения значения нажмите кнопку \u0022Изменить значения\u0022")
+				}
+			});
+		});
+
+		// При клике на кнопку "Получить отдельное число"
+		document.querySelector('#btn1').addEventListener('click', function () {
+			if (flag == true) {
+				if (value1 <= value2) {
+					if (value1 !== value3) {
+						let iCount = isCount(value1);
+						let iPrime = isPrime(value1);
+						console.log(value1 + `- ${iCount}, ${iPrime}`);
+						value1++;
+					} else {
+						console.log(`Ошибка на числе: ${value3}. Начните получение заново`);
+						return;
+						value1 = parseInt(document.querySelector('#value1').value);
+
+
+					}
+
+				} else {
+					console.log("Последовательность закончена. Начните ввод заново");
+				}
+			} else {
+				console.log("Зафиксируйте значения!");
+			}
+
+
+		});
+
+		// При клике на кнопку "Получить все числа"
+		document.querySelector('#btn2').addEventListener('click', function () {
+
+			if (flag == true) {
+				let generatenNumber = generateNumbers(value1, value2, value3);
+
+
+				let number = generatenNumber.next();
+				while (!number.done) {
+					if (number.value === value3) {
+						generatenNumber.throw(value3);
+						number.done = true;
+						value1 = parseInt(document.querySelector('#value1').value);
+					} else {
+						let iCount = isCount(number.value);
+						let iPrime = isPrime(number.value);
+						console.log(number.value + `- ${iCount}, ${iPrime}`);
+						number = generatenNumber.next();
+					}
+				}
+			} else {
+				console.log("Зафиксируйте значения");
+			}
+
+		});
+
+		// При клике на кнопку "Зафиксировать значения"
+		document.querySelector('#btn3').addEventListener('click', function () {
+			let btnflag;
+
+			if (flag == false) {
+				btnflag = true;
+				this.innerHTML = "Изменить значения";
+				inputNumbers.forEach(function (input) {
+					input.readOnly = true;
+
+				});
+				value1 = parseInt(document.querySelector('#value1').value);
+				value2 = parseInt(document.querySelector('#value2').value);
+				value3 = parseInt(document.querySelector('#value3').value);
+
+			} else {
+				btnflag = false;
+				this.innerHTML = "Зафиксировать значения";
+				inputNumbers.forEach(function (input) {
+					input.readOnly = false;
+				});
+
+			}
+			flag = btnflag;
+			return flag;
+		});
+
+		// Функция - генератор, генерирует значения чисел в диапазоне введённом пользователем в инпут
+		function* generateNumbers(startValue, endValue, stopValue) {
+			try {
+				for (let i = startValue; i <= endValue; i++) {
+					yield i;
+				}
+			} catch (stopValue) {
+				console.log(`Ошибка: ${value3}.Начните получение заново`);
+				return;
+			}
+		}
+
+		// Функция для проверки чётности/нечётности числа
+		function isCount(number) {
+			if (number % 2 !== 1) {
+				return 'чётное';
+			} else {
+				return 'нечётное';
+			}
+		}
+
+		// Функция для проверки простоты/составности числа
+		function isPrime(number) {
+			if (number < 2 || number % 2 === 0 && number !== 2) {
+				return 'простое';
+			} else {
+				return 'составное';
+			}
+
+		}
+	</script>
+</body>
+
+</html>
