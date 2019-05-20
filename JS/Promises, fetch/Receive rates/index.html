@@ -12,6 +12,8 @@
             
             btn.addEventListener('click', function () {
                 const table = document.querySelector('#table');
+				const status = document.querySelector('#status');
+				status.innerHTML = 'Обработка запроса'; 
                 if (table !== null && table !== undefined) {
                 table.remove();
                     }
@@ -19,11 +21,10 @@
                     .then(response => response.json())
                     .then(filterRate)
                     .then(createTable)
-                    .catch(err => document.body.appendChild(err));
+                    .catch(err => document.body.appendChild(err))
+					.finally (() => status.innerHTML = 'Запрос обработан')
             }, false);
-
             function getRate(url) {
-
                 return fetch(url, {
                     method: 'post',
                     headers: {
@@ -32,7 +33,6 @@
                     body: 'foo=bar&lorem=ipsum'
                 });
             };
-
             let filterRate = rate => {
                 if (Array.isArray(rate)) {
                     let listRate = [];
@@ -73,25 +73,22 @@
                     return;
                 }
             }
-
             let createTable = listRate => {
                 let tableArr = ['<table id="table">'];
-
+				if (listRate.length > 0) {
                 listRate.forEach(elem => {
                     tableArr.push('<tr><td>' + elem.txt + '</td><td>' + elem.rate + '</td></tr>')
-                });
-
+                })
+				}
+				else {
+				tableArr.push ('<tr><td>Не имеется данных, удовлетворяющих критерию запроса</td></tr>');
+				};
                 tableArr.push('</table>');
                 let divTable = document.createElement('div');
                 divTable.innerHTML = tableArr.join('\n');
                 document.body.appendChild(divTable);
             }
-
           
-
-
-
-
         });
     </script>
 
@@ -107,6 +104,7 @@
         числа <input type="number" id="number" value="25">
     </p>
     <p> <input type="button" value="Получить" id="btn"></p>
+	<p id = "status">  <p>
 </body>
 
 </html>

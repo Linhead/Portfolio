@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Приложение добавляет пользователя список пользователей, проверяя на уникальность, и позволяет получить данные о пользователе 
+по номеру его добавления  -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ES 5</title>
+</head>
+<style>
+    .table {
+        display: flex;
+    }
+
+    form {
+        display: table;
+        padding: 10px;
+    }
+
+    form div {
+        display: table-row;
+    }
+
+    form p {
+        display: table-cell;
+        padding: 3px;
+    }
+
+    p span {
+        font-style: italic;
+    }
+
+    p {
+        padding: 10px;
+    }
+
+    #warn {
+        visibility: hidden;
+    }
+</style>
+
+<body>
+
+    <div class="table">
+        <div class="firstColumn">
+            <form action="#">
+                <div>
+                    <p><label for="name">Имя:</label></p>
+                    <p><input type="text" id="name" class="userData" required> </p>
+                </div>
+                <div>
+                    <p><label for="surname">Фамилия:</label></p>
+                    <p><input type="text" id="surname" class="userData" required></p>
+                </div>
+                <div>
+                    <p><label for="age">Возраст:</label></p>
+                    <p><input type="number" id="age" class="userData" required></p>
+                </div>
+                <div>
+                    <p><label for="job">Должность:</label></p>
+                    <p><input type="text" id="job" class="userData" required></p>
+                </div>
+                <div>
+                    <p><input type="submit" value="Добавить пользователя" id="btnAdd"></p>
+                    <p id="warn"> Пользователь с такими данными уже существует!</p>
+                </div>
+
+            </form>
+            <p> Добавлено пользователей: <span id="usersAmount"></span></p>
+        </div>
+        <div class="secondColumn">
+            <form action="#">
+                <div>
+                    <p><label for="userNumber">Получить пользователя за №:</label></p>
+                    <p><input type="number" id="userNumber" min="1" value="1"></p>
+                </div>
+                <div>
+                    <p><input type="button" value="Получить " id="btnGet"></p>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+
+    <script>
+        window.addEventListener('load', function (e) {
+            let usersList = new Set();
+            document.querySelector('#btnAdd').addEventListener('click', function () {
+                if (document.querySelector('#warn').style.visibility = "visible") {
+                    document.querySelector('#warn').style.visibility = "hidden"
+                }
+                const inputs = document.querySelectorAll(".userData");
+                let name = document.querySelector('#name').value;
+                let surname = document.querySelector('#surname').value;
+                let age = document.querySelector('#age').value;
+                let job = document.querySelector('#job').value;
+                if (checkInput(inputs)) {
+                    if (usersList.size > 0) {
+                        for (let user of usersList) {
+                            if (user.name === name && user.surname === surname && user.age === age &&
+                                user.job === job) {
+                                document.querySelector('#warn').style.visibility = "visible";
+                                e.preventDefault();
+                                return;
+                            }
+                        }
+                    }
+                    usersList.add({
+                        name,
+                        surname,
+                        age,
+                        job
+                    });
+                    document.querySelector('#usersAmount').innerHTML = usersList.size;
+                } else {
+                    e.preventDefault();
+                }
+            });
+
+            document.querySelector('#btnGet').addEventListener('click', function () {
+                const table = document.querySelector('#table');
+                if (table !== null && table !== undefined) {
+                    table.remove();
+                }
+                let tableArr = ['<table id="table">'];
+                let divTable = document.createElement('div');
+                if (usersList.size !== 0) {
+                    let index = document.querySelector('#userNumber').value - 1;
+                    if (index >= 0) {
+                        if (index <= usersList.size - 1) {
+                            let usersListArr = Array.from(usersList);
+                            let userInfo = usersListArr[index];
+                            tableArr.push(`<tr><td> Имя: ${userInfo.name}
+                                </td></tr><tr><td> Фамилия: ${userInfo.surname}
+                                </td></tr><tr><td> Возраст: ${userInfo.age}
+                                </td></tr><tr> <td> Профессия: ${userInfo.job}
+                                </td></tr></table>`);
+                            divTable.innerHTML = tableArr.join('\n');
+                            document.body.appendChild(divTable);
+                        } else {
+                            tableArr.push(
+                                '<tr><td> Выбранное количество больше количества добавленных пользователей!</td></tr></table>'
+                            );
+                            divTable.innerHTML = tableArr.join('\n');
+                            document.body.appendChild(divTable);
+                        }
+                    } else {
+                        tableArr.push('<tr><td> Введите число больше нуля!</td></tr></table>');
+                        divTable.innerHTML = tableArr.join('\n');
+                        document.body.appendChild(divTable);
+                    }
+                } else {
+                    tableArr.push(
+                        '<tr><td> В список пользователей никто не добавлен!</td></tr></table>');
+                    divTable.innerHTML = tableArr.join('\n');
+                    document.body.appendChild(divTable);
+                }
+            });
+
+            let checkInput = inputs => {
+                let checkInput;
+                for (let input of inputs) {
+                    let checkedInput;
+                    if (input.value == "") {
+                        let checkedInput = false;
+                        return false;
+                    } else {
+                        checkedInput = true;
+                    }
+                    checkInput = checkedInput;
+                };
+                return checkInput;
+            };
+        });
+    </script>
+</body>
+
+</html>
