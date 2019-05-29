@@ -1,0 +1,153 @@
+<!-- приложение для получения информации о пользователе и его комментариев с сервера по id-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Async/await</title>
+</head>
+
+<body>
+    <p> Введите id пользователя:
+        <input type="number" name="id" id="id">
+        <button type="submit" id="getUserInfoBtn">Получить информацию о пользователе</button>
+    </p>
+
+    <div id="userInfo" style="display: none;">
+        <p id="userName">
+
+        </p>
+        <p id="userLogin">
+        </p>
+        <p id="userEmail">
+        </p>
+        <p id="userWebsite">
+        </p>
+        <p>
+
+            <p>
+                <button type="button" id="getUserPostsBtn" style="visibility: hidden;">
+                    Показать комментарии
+                </button></p>
+            <p id="userPosts" style="display: none"></p>
+        </p>
+    </div>
+    <p id="waitingData"> </p>
+    <script>
+        'use strict';
+        window.addEventListener('load', function () {
+            
+            let userPosts = document.querySelector("#userPosts");
+            let getUserPostsBtn = document.querySelector("#getUserPostsBtn");
+            const url = `https://jsonplaceholder.typicode.com`;
+
+            document.querySelector("#getUserInfoBtn").addEventListener('click', async function () {
+                let id = document.querySelector("#id").value;
+                let waitingData = document.querySelector("#waitingData");
+                let userInfo = document.querySelector("#userInfo");
+
+                userInfo.style.display = "none";
+                waitingData.innerHTML = "Получение данных пользователя...";
+                getUserPostsBtn.style.visibility = "hidden";
+
+                try {
+                    let user = await getUserById(id)
+                    fillUserInfo(user, waitingData, userInfo);
+                    let comments = await getComments(id);
+                    fillComments(comments, waitingData);
+                } catch (error) {
+                    waitingData.innerHTML = `Ошибка: ${error.message}`;
+                }
+            });
+
+            getUserPostsBtn.addEventListener('click', function () {
+                waitingData.innerHTML = "";
+                if (userPosts.style.display == 'none') {
+                    userPosts.style.display = "block";
+                    this.innerHTML = "Скрыть комментарии";
+                } else {
+                    userPosts.style.display = "none";
+                    this.innerHTML = "Показать комментарии";
+                }
+            });
+
+            async function getUserById(id) {
+                try {
+                    let response = await fetchUserJson(id);
+                    if (response.ok) {
+                        return await response.json();
+                    } else {
+                        throw new Error('Пользователя с таким ID не существует');
+                    }
+                } catch (error) {
+                    if (error.__proto__.name == 'TypeError') {
+                        throw new Error('Не удалось получить данные от сервера')
+                    } else {
+                        throw error;
+                    }
+                }
+            }
+
+            function fetchUserJson(id) {
+                return new Promise((resolve, reject) => {
+                    setTimeout(() => resolve(fetch(`${url}/users/${id}`)),
+                        3000);
+                });
+            }
+
+            async function getComments(id) {
+                try {
+                    let response = await fetchCommentsJson(id);
+                    if (response.ok) {
+                        return await response.json();
+
+                    } else {
+                        throw new Error('Пользователя с таким ID не существует');
+                    }
+                } catch (error) {
+                    if (error.__proto__.name == 'TypeError') {
+                        throw new Error('Не удалось получить данные от сервера')
+                    } else {
+                        throw error;
+                    }
+                }
+            }
+
+            function fetchCommentsJson(id) {
+                return new Promise((resolve, reject) => {
+                    setTimeout(() => resolve(fetch(
+                        `${url}/posts?userIs=${id}`)), 3000);
+                });
+            }
+
+        })
+
+        function fillUserInfo(user, waitingData, userInfo) {
+            waitingData.innerHTML = "";
+            userInfo.style.display = "block";
+            document.querySelector("#userName").innerHTML =
+                `Имя : ${user.name}`;
+            document.querySelector("#userLogin").innerHTML =
+                `Фамилия: ${user.username}`;
+            document.querySelector("#userEmail").innerHTML =
+                `Эл.почта: ${user.email}`;
+            document.querySelector("#userWebsite").innerHTML =
+                `Веб-сайт: ${user.website}`;
+            waitingData.innerHTML = "Получение комментариев пользователя...";
+        }
+
+        function fillComments(comments, waitingData) {
+            waitingData.innerHTML =
+                "Комментарии получены, нажмите на кнопку, чтобы их увидеть";
+            getUserPostsBtn.style.visibility = "visible";
+            for (let comment of comments) {
+                userPosts.innerHTML += comment.title + '<br>' + comment.body +
+                    '<br>' + '<br>';
+            }
+        }
+    </script>
+</body>
+
+</html>
