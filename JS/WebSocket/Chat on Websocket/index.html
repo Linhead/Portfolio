@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Chat</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+
+</head>
+
+<body class='mt-5'>
+    <div class="container-fluid">
+        <div class="row" id='userForm'>
+            <div class="col">
+                <form>
+                    <div class="form-group">
+                        <label for="">Введите имя</label>
+                        <input id="username" class="form-control">
+                        <hr>
+                        <input type="button" id='login' class="btn btn-primary" value='Login'>
+                        <p class="error"></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row" id='chatForm'>
+            <div class="col-4">
+                <div class="card bg-light">
+                    <h4 class="card-header">Пользователи онлайн</h3>
+                        <div class='card-body'>
+                            <ul class='list-group pl-5' id="users"></ul>
+                        </div>
+                </div>
+            </div>
+            <div class="col-8">
+                <div class="chat" id="chat">
+
+                </div>
+                <form>
+                    <div class="form-group">
+                        <label for="">Cообщение</label>
+                        <textarea id="textMessage" class="form-control"></textarea>
+                        <hr>
+                        <input type="button" id='sendMessageBtn' class="btn btn-sm btn-primary"
+                            value='Отправить сообщение'>
+                            <p class="error"></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(function () {
+            let socket = new WebSocket('ws://localhost:9009');
+            let message = $('#textMessage');
+            let sendMessageBtn = $('#sendMessageBtn');
+            let chat = $('#chat');
+            let chatForm = $("#chatForm");
+            let userForm = $("#userForm");
+            chatForm.hide();
+            let userName = $('#username');
+            let loginBtn = $("#login");
+            let userList = $("#users");
+            let err = $('.error');
+            let currentName;
+            
+            loginBtn.click(event => {
+                err[0].innerHTML = "";
+                currentName = userName.val();
+                if (currentName.trim() !== "") {
+                    const mess = JSON.stringify({
+                        type: 'user',
+                        text: currentName
+                    });
+                    socket.send(mess);
+                } else {
+                    err[0].innerHTML = "Введите имя!";
+                    event.preventDefault();
+                }
+            });
+
+            socket.onmessage = (event) => {
+                const mess = JSON.parse(event.data);
+                if (mess.type === 'users') {
+                    userForm.hide();
+                    chatForm.show();
+                    let li = document.createElement('li');
+                    li.innerText = mess.text;
+                    userList.append(li);
+                    chat.append(`<div class='alert alert-primary'> К нам присоединился: ${mess.text}</div>`)
+                } else if (mess.type === 'message') {
+                    chat.append(`<div class='alert alert-info'>${mess.user}: ${mess.text}</div>`)
+
+                } else if (mess.type === 'usersList') {
+                    if (mess.text !== currentName) {
+                        let li = document.createElement('li');
+                        li.innerText = mess.text;
+                        userList.append(li);
+                    }
+                } else if (mess.type === 'DisconnectedUser') {
+                    let listLi = $('li');
+                    let arrLi = Array.from(listLi);
+                    arrLi.forEach(li => {
+                        if (li.textContent === mess.text) {
+                            li.style.display = "none";
+                        }
+
+                    });
+                    chat.append(`<div class='alert alert-secondary'> Нас покинул: ${mess.text}</div>`)
+                } else if (mess.type === 'error') {
+                    err[1].innerHTML = mess.text;
+                    event.preventDefault();
+                }
+
+            }
+
+            sendMessageBtn.click((event) => {
+                err[1].innerHTML = "";
+                let userMsg = message.val();
+                if (userMsg.trim() !== "") {
+                const mess = JSON.stringify({
+                    type: 'message',
+                    text: userMsg,
+                    user: currentName
+                });
+                socket.send(mess);
+                chat.append(`<div class='alert alert-warning'>You: ${message.val()}</div>`)
+                message.val('');
+                } else {
+                    err[1].innerHTML = "Введите сообщение!";
+                    event.preventDefault();
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
