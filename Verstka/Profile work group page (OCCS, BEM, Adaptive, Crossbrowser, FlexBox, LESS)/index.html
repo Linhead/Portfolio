@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="styles/normalize.css" rel="stylesheet">
+    <link rel="stylesheet/less" type="text/css" href="styles/styles.less" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.9.0/less.min.js" defer></script>
+    <script src="js/main.js" defer></script>
+
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="content">
+        <div class="container">
+
+            <header class="header">
+                <h2 class="title title__header"> Профиль рабочей группы </h2>
+                <p class="text text__header text_italic">В данном разделе вы можете посмотреть и отредактировать
+                    информацию по своей рабочей
+                    группе,
+                    настроить права участников, расшарить настройки полностью или частично для других рабочих групп,
+                    а также сделать полную копию вашей рабочей группы с ограниченным доступом для тонкой настройки без
+                    публичных оповещений.</p>
+            </header>
+
+            <section class="main">
+
+                <h3 class="title title__main">Основная информация </h3>
+
+                <div class="alert alert__main">
+                    <h4 class="title title__alert">Внимание! </h4>
+                    <div class="flex flex__alert">
+                        <p class="text text__alert"> Ваши данные сохранены в браузере, но не отправлены на сервер.
+                            Нажмите кнопку “Отправить”, чтобы завершить редактирование.</p>
+                        <div class="img img__alert"> </div>
+                    </div>
+                </div>
+
+                <div class="info info_hidden" id="infoPrgph"  tabindex="0"> 
+                            <p class="text text__info" id="infoTxt"></p>
+                        </div>
+
+                <form method="POST" action="#" class="form form__main">
+                    <div class="flex flex__form">
+                        <div class="column">
+                            <div class="cell">
+                                <h5 class="title title__cell title_gray">Название группы </h5>
+                                <input type="text" value="Моя новая рабочая группа"
+                                    class="input-text input-text__form" data-name="Название группы">
+                            </div>
+                            <div class="cell">
+                                <h5 class="title title__cell">Телефон представителя </h5>
+                                <input type="phone" value="" placeholder="+7 (XXX) XXX-XX-XX"
+                                    class="input-text input-text__form" id="phone" data-name="Телефон представителя">
+                            </div>
+                        </div>
+
+                        <div class="column">
+                            <div class="cell">
+                                <h5 class="title title__cell title_red">Алиас </h5>
+                                <input type="text" value="my-new-workgroup 2"
+                                    class="input-text input-text__form" data-name="Алиас">
+                            </div>
+                            <div class="cell">
+                                <h5 class="title title__cell">ФИО представителя </h5>
+                                <input type="text" value="" placeholder="Введите полные данные представителя"
+                                    class="input-text input-text__form" data-name="ФИО представителя">
+                            </div>
+                        </div>
+
+                        <div class="column">
+                            <div class="cell">
+                                <h5 class="title title__cell title_blue">Электронная почта для обращений </h5>
+                                <input type="e-mail" value="unfo@my-domen.r" class="input-text input-text__form" id="email" 
+                                data-name="Электронная почта для обращений">
+                            </div>
+                            <div class="cell">
+                                <h5 class="title title__cell">Должность ответственного </h5>
+                                <input type="text" value="" placeholder="Введите полное наименование должности"
+                                    class="input-text input-text__form" data-name="Должность ответственного">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+                <div class="description">
+
+                    <div class="description__contain">
+                        <h6 class="title title__description title_gray">Описание рабочей группы для внутреннего
+                            использования </h6>
+                        <textarea
+                            class="text text__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</textarea>
+                    </div>
+
+                    <div class="checkbox checkbox__description">
+                        <input type="checkbox" id="checkbox" checked>
+                        <label for="checkbox">
+                            Публичное описание отличается от внутреннего</label>
+                    </div>
+
+                    <div class="description__contain">
+                        <div class="title title__description">Публичное описание рабочей группы</div>
+                        <textarea class="text text__description"
+                            placeholder="Введите краткое и ёмкое описание"></textarea>
+                    </div>
+                    
+                </div>
+                    
+                <div class="buttons buttons__main">
+                        <div class="flex flex__buttons">
+                            <button type="submit" class="button button__main button_blue" id="btnSend"> Отправить на модерацию</button>
+                            <button type="reset" class="button button__main button_small" id="btnCancel"> Отмена </button>
+                            <button type="submit" class="button button__main button_disabled" id="btnSave" disabled> Сохранить в мои черновики </button>
+                        </div>
+                </div>
+                
+                
+
+            </section>
+
+        </div>
+    </div>
+</body>
+
+</html>
