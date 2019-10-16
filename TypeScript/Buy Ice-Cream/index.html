@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Hello world app</title>
+
+    <style>
+
+    </style>
+
+</head>
+
+<body>
+    <form action="#" method="post" name="form1">
+        
+        <fieldset>
+            <legend><strong>Выберите размер:</strong></legend>
+            <p><input type="radio" name="size" data-price = 10>
+                <label for="1">Маленький </label>
+                <input type="radio" name="size" data-price = 25 >
+                <label for="2">Большой</label>
+            </p>
+        </fieldset><br>
+        
+        <fieldset id="addings">
+            <legend><strong>Выберите добавки (минимум одну): </strong></legend>
+            <p> <input type="checkbox" name="chocolate" class="addings" value="chocolate" data-price = 5>Шоколад
+                <input type="checkbox" name="caramel" class="addings" value="caramel" data-price = 6>Карамель
+                <input type="checkbox" name="berries" class="addings" value="berries" data-price = 10>Ягоды
+            </p>
+       <br>
+            <legend><strong>Посыпать маршмеллоу </strong></legend>
+            <input type="checkbox" name="marshmallow" data-price = 5>
+        </fieldset><br>
+        
+        <p id="warning" style="display: none;"></p>
+        <p> Цена: <span id="price">0</span> руб.</p>
+
+        
+        <input type="submit" value="Заказать мороженное" id="order">
+        </form>
+
+    <script src="js/app.js"></script>
+</body>
+
+</html>
